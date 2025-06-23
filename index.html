@@ -220,8 +220,8 @@
         #contact .section-title::after {
             background-color: var(--accent-color);
         }
-
-        #about {
+        
+        #about, #education {
             background-color: var(--bg-light);
             padding: 80px 5%;
             display: flex;
@@ -456,7 +456,7 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        #experience {
+        #experience, #education {
             background-color: #f8f9fa;
             padding: 80px 5%;
             text-align: center;
@@ -790,6 +790,28 @@
             opacity: 1;
         }
 
+        .contact-gif {
+            width: 100px;
+            height: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: slideGoomba 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes slideGoomba {
+            0% {
+                transform: translateX(-150px);
+            }
+            100% {
+                transform: translateX(150px);
+            }
+        }
+
         @media (max-width: 1024px) {
             #about .about-content {
                 max-width: 1000px;
@@ -852,7 +874,8 @@
 
             .nav-links.active {
                 display: flex;
-                max-height: 300px;
+                max-height: none;
+                overflow-y: auto;
                 opacity: 1;
                 pointer-events: auto;
             }
@@ -949,6 +972,10 @@
             .section-title:hover::after {
                 width: 90px;
             }
+
+            .contact-gif {
+                width: 80px;
+            }
         }
         @media (max-width: 480px) {
             .hero-text-container {
@@ -972,6 +999,7 @@
         <div class="nav-links">
             <a href="#hero">Beranda</a>
             <a href="#about">Tentang Saya</a>
+            <a href="#education">Pendidikan</a>
             <a href="#projects">Proyek</a>
             <a href="#experience">Pengalaman</a>
             <a href="#organization">Organisasi</a>
@@ -1029,6 +1057,47 @@
                     <li>Problem Solving</li>
                     <li>Adaptability</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Pendidikan</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-item-content">
+                    <h3>STMIK Triguna Dharma</h3>
+                    <p class="company">Sistem Informasi | IP: 3.80/4.00</p>
+                    <p class="duration">Okt 2023 - Sekarang</p>
+                    <p>Bidang Keahlian: Enterprise Administration, Full-Stack Web Development, Advanced Database Management, dan User Experience Design.</p>
+                    <p>Konsentrasi Keahlian:</p>
+                    <ul>
+                        <li>Berperan sebagai bagian dari tim pengelola jurnal ilmiah dosen, bertanggung jawab dalam penyuntingan konten, pengecekan metadata, hingga submit artikel ke sistem OJS (Open Journal System) secara tepat waktu dan sesuai standar publikasi.</li>
+                        <li>Mendesain prototipe aplikasi e-commerce menggunakan Figma, mencakup pembuatan wireframe, flowchart user journey, dan prototipe interaktif, dengan fokus pada implementasi prinsip-prinsip user experience (UX) dan user interface (UI).</li>
+                        <li>Mengembangkan aplikasi web sederhana menggunakan HTML, CSS, JavaScript, PHP, dan MySQL dengan fitur CRUD.</li>
+                        <li>Membangun aplikasi web sederhana dengan fitur CRUD menggunakan kombinasi teknologi HTML, CSS, JavaScript, PHP, dan MySQL, untuk mendukung kebutuhan administrasi dan pengelolaan data.</li>
+                        <li>Berkontribusi dalam tim Infokom dengan mendukung pembuatan konten digital untuk publikasi, dokumentasi kegiatan, dan pengelolaan komunikasi visual organisasi.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item-marker"></div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-item-content">
+                    <h3>SMK Swasta Istiqlal Delitua</h3>
+                    <p class="company">Otomatisasi dan Tata Kelola Perkantoran</p>
+                    <p class="duration">Jul 2019 - Jun 2022</p>
+                    <p>Bidang Keahlian: Administrasi Perkantoran Digital, Sistem Otomatisasi Kantor, Manajemen Kesekretariatan, dan Tata Kelola Dokumen.</p>
+                    <p>Prestasi & Kompetensi Profesional:</p>
+                    <ul>
+                        <li>Praktek Kerja Industri (PKL) Bersertifikat - Menyelesaikan program magang selama 4 bulan di BPDASHIL WAMPU SEI ULAR dengan predikat "Amat Baik", menguasai sistem administrasi instansi pemerintahan dan pengelolaan data operasional.</li>
+                        <li>Sertifikasi Kompetensi Profesional - Memperoleh sertifikat Sub Kompetensi dari PT. HAJI OH NUSANTARA untuk bidang administrasi perkantoran dan tata kelola sistem informasi perusahaan.</li>
+                        <li>Kompetensi Teknis Terintegrasi - Menguasai penuh aspek kepribadian profesional, disiplin kerja, kemampuan teknis minimal, dan operasional dasar sesuai standar industri dengan evaluasi sempurna.</li>
+                        <li>Spesialisasi Sistem Perkantoran Modern - Kompeten dalam implementasi teknologi otomatisasi kantor, digitalisasi proses bisnis, dan manajemen workflow administratif berbasis sistem terintegrasi.</li>
+                        <li>Kepemimpinan Organisasi - Memimpin dan mengelola sistem tata kelola administrasi organisasi siswa, termasuk pengembangan SOP, manajemen dokumen elektronik, dan koordinasi lintas divisi.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item-marker"></div>
             </div>
         </div>
     </section>
@@ -1161,7 +1230,7 @@
             </div>
             <div class="organization-card">
                 <div class="organization-image-container">
-                    <img src="images/UIUXCLASS.jpg" alt="UI/UX Design Class">
+                    <img src="images/uiux.jpg" alt="UI/UX Design Class">
                     <div class="image-overlay">
                         <span>+</span>
                     </div>
@@ -1200,7 +1269,7 @@
             </div>
             <div class="organization-card">
                 <div class="organization-image-container">
-                    <img src="images/LARAVEL.jpg" alt="Class Backend Build With Laravel">
+                    <img src="images/backend.jpg" alt="Class Backend Build With Laravel">
                     <div class="image-overlay">
                         <span>+</span>
                     </div>
@@ -1265,8 +1334,9 @@
 
     <section id="contact">
         <h2 class="section-title">Terhubung dengan Saya</h2>
-        <p>Mari berdiskusi lebih lanjut tentang proyek atau peluang kolaborasi!</p>
+        <p>Antusias untuk mengeksplorasi sinergi dan peluang kolaborasi yang inovatif.</p>
         <div class="contact-info">
+            <img src="images/goomba.gif" alt="Animasi Kontak" class="contact-gif">
         </div>
         <div class="social-links">
             <a href="https://www.linkedin.com/in/siti-noor-shaliha-9370302a7" target="_blank" title="Kunjungi Profil LinkedIn Saya">
