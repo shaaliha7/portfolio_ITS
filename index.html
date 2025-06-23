@@ -693,17 +693,19 @@
                 pointer-events: auto;
             }
 
+            /* --- MODIFIKASI DIMULAI DI SINI --- */
+            /* Terapkan padding dan border-bottom yang konsisten ke semua tautan menu di tampilan mobile */
             .nav-links a {
                 margin: 0;
-                padding: 15px 20px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 15px 20px; /* Pastikan padding konsisten untuk semua item */
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Tambahkan border-bottom ke semua item */
                 text-align: left;
             }
 
-            /* --- MODIFIKASI DIMULAI DI SINI --- */
-            /* Pastikan elemen terakhir juga memiliki border-bottom atau padding yang sama */
+            /* Hapus aturan spesifik untuk last-child jika ada yang menimpa */
+            /* Ini penting karena sebelumnya mungkin ada aturan yang menimpa border-bottom untuk last-child */
             .nav-links a:last-child {
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Tambahkan kembali border-bottom */
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Pastikan last-child juga memiliki border */
             }
             /* --- MODIFIKASI BERAKHIR DI SINI --- */
 
