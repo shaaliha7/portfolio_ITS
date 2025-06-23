@@ -234,10 +234,10 @@
 
         #about .about-content {
             display: flex;
-            flex-direction: column; /* Mengubah menjadi kolom agar foto di atas kotak teks */
-            align-items: center; /* Memusatkan konten secara horizontal */
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            max-width: 1000px;
+            max-width: 1200px;
             gap: 40px;
             text-align: left;
             margin-bottom: 50px;
@@ -246,7 +246,7 @@
         .about-image-wrapper {
             width: 280px;
             height: 280px;
-            border-radius: 50%; /* Membuat gambar menjadi bulat */
+            border-radius: 50%;
             border: 8px solid var(--secondary-color);
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -267,7 +267,7 @@
         .about-image-wrapper img {
             width: 100%;
             height: 100%;
-            border-radius: 50%; /* Membuat gambar di dalam wrapper juga bulat */
+            border-radius: 50%;
             object-fit: cover;
             display: block;
             border: none;
@@ -275,9 +275,9 @@
         }
 
         .text-content {
-            width: 100%; /* Mengambil lebar penuh agar bisa menyesuaikan */
-            max-width: 800px; /* Batasi lebar maksimal agar tidak terlalu lebar di desktop */
-            padding: 30px;
+            width: 100%;
+            max-width: 1000px;
+            padding: 40px;
             background-color: #fff;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -378,12 +378,12 @@
             font-size: 1.1em;
         }
 
-        #projects {
+        #projects, #organization, #relawan {
             background-color: #e0f2f7;
             padding: 80px 5%;
         }
 
-        .project-grid {
+        .project-grid, .organization-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
@@ -393,7 +393,24 @@
             margin-right: auto;
         }
 
-        .project-card {
+        .relawan-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 5%;
+            box-sizing: border-box;
+        }
+
+        .relawan-grid .organization-card {
+            max-width: 380px;
+            width: 100%;
+        }
+
+        .project-card, .organization-card {
             background-color: #fff;
             border-radius: 15px;
             overflow: hidden;
@@ -403,19 +420,19 @@
             position: relative;
         }
 
-        .project-card:hover {
+        .project-card:hover, .organization-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
-        .project-image-container {
+        .project-image-container, .organization-image-container {
             position: relative;
             width: 100%;
             padding-bottom: 75%;
             overflow: hidden;
         }
 
-        .project-card img {
+        .project-card img, .organization-card img {
             position: absolute;
             top: 0;
             left: 0;
@@ -425,19 +442,21 @@
             display: block;
         }
 
-        .project-info {
+        .project-info, .organization-info {
             padding: 25px;
         }
 
-        .project-info h3 {
+        .project-info h3, .organization-info h3 {
             color: var(--text-dark);
             font-size: 1.5em;
             margin-bottom: 0.3em;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .project-info p {
+        .project-info p, .organization-info p {
             font-size: 0.95em;
             color: #555;
+            font-family: 'Poppins', sans-serif;
         }
 
         #experience {
@@ -770,8 +789,18 @@
         }
 
         .project-card:hover .image-overlay,
-        .cert-card:hover .image-overlay {
+        .organization-card:hover .image-overlay {
             opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+            #about .about-content {
+                max-width: 1000px;
+            }
+            .text-content {
+                max-width: 900px;
+                padding: 35px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -845,9 +874,14 @@
             #about .about-content {
                 flex-direction: column;
                 text-align: center;
+                max-width: 90%;
             }
             .about-image-wrapper {
                 margin-bottom: 20px;
+            }
+            .text-content {
+                max-width: 100%;
+                padding: 25px;
             }
 
             .skills-container {
@@ -858,8 +892,16 @@
                 width: 100%;
             }
 
-            .project-grid {
+            .project-grid, .organization-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .relawan-grid {
+                padding: 0;
+            }
+
+            .relawan-grid .organization-card {
+                max-width: 100%;
             }
 
             .timeline::before {
@@ -935,6 +977,8 @@
             <a href="#about">Tentang Saya</a>
             <a href="#projects">Proyek</a>
             <a href="#experience">Pengalaman</a>
+            <a href="#organization">Organisasi</a>
+            <a href="#relawan">Relawan</a>
             <a href="#certifications">Sertifikasi</a>
             <a href="#contact">Kontak</a>
         </div>
@@ -944,7 +988,7 @@
         <h1>Siti Noor Shaliha</h1>
         <div class="hero-text-container">
             <p><strong>Membangun Solusi Digital, Membentuk Masa Depan.</strong></p>
-            <p>Sebagai mahasiswa Sistem Informasi, saya bersemangat mengintegrasikan inovasi teknologi dengan kebutuhan nyata. Saya percaya bahwa dunia digital bukan sekadar kode dan data, melainkan tentang menciptakan solusi intuitif yang memberdayakan, menyederhanakan proses, dan memberikan dampak positif bagi kehidupan manusia.</p>
+            <p>Sebagai mahasiswa Sistem Informasi, saya bersemangat mengintegrasikan inovasi teknologi dengan kebutuhan nyata. Saya percaya bahwa dunia digital bukan sekadar kode dan data, bahkan tentang menciptakan solusi intuitif yang memberdayakan, menyederhanakan proses, dan memberikan dampak positif bagi kehidupan manusia.</p>
             <p>Visi saya adalah menjadi seorang profesional yang kontributif dalam pengembangan sistem informasi yang tidak hanya efisien dan aman, tetapi juga berpusat pada pengalaman pengguna. Untuk itu, saya berkomitmen untuk terus belajar, mengasah keterampilan teknis maupun manajerial, dan menjalin kolaborasi strategis demi mewujudkan inovasi yang berkelanjutan.</p>
             <p>Pengalaman saya dalam berbagai proyek dan organisasi telah mengajarkan bahwa kunci keberhasilan terletak pada ketekunan, adaptasi, dan keberanian untuk terus mencoba. Saya yakin, dengan kerja keras yang konsisten dan tujuan yang jelas, setiap tantangan akan menjadi peluang untuk tumbuh.</p>
             <p><em>"Saya di sini bukan hanya untuk menggunakan teknologi, tetapi untuk menjadi bagian dari mereka yang membentuknya demi kebaikan bersama."</em></p>
@@ -1089,6 +1133,109 @@
         </div>
     </section>
 
+    <section id="organization">
+        <h2 class="section-title">Organisasi</h2>
+        <div class="organization-grid">
+            <div class="organization-card">
+                <div class="organization-image-container">
+                    <img src="images/GDG.jpg" alt="DevFest Google Developer Groups 2023">
+                    <div class="image-overlay">
+                        <span>+</span>
+                    </div>
+                </div>
+                <div class="organization-info">
+                    <h3>DevFest Google Developer Groups 2023</h3>
+                    <p><strong>Peserta</strong></p>
+                    <p>Berpartisipasi sebagai peserta dalam DevFest Google Developer Groups 2023, sebuah konferensi tahunan yang menghadirkan inovasi terbaru dalam teknologi Google, berinteraksi dengan para ahli, dan mendalami topik-topik relevan.</p>
+                </div>
+            </div>
+            <div class="organization-card">
+                <div class="organization-image-container">
+                    <img src="images/SEMINARLDK.jpg" alt="Seminar Peaching and Technology LDK">
+                    <div class="image-overlay">
+                        <span>+</span>
+                    </div>
+                </div>
+                <div class="organization-info">
+                    <h3>Seminar Peaching and Technology LDK</h3>
+                    <p><strong>Panitia</strong></p>
+                    <p>Berkontribusi sebagai panitia dalam penyelenggaraan Seminar Peaching and Technology LDK, memastikan kelancaran acara dan mendukung kebutuhan peserta serta pembicara.</p>
+                </div>
+            </div>
+            <div class="organization-card">
+                <div class="organization-image-container">
+                    <img src="images/UIUXCLASS.jpg" alt="UI/UX Design Class">
+                    <div class="image-overlay">
+                        <span>+</span>
+                    </div>
+                </div>
+                <div class="organization-info">
+                    <h3>UI/UX Design Class</h3>
+                    <p><strong>Peserta</strong></p>
+                    <p>Mengikuti kelas desain UI/UX untuk memperdalam pemahaman tentang prinsip-prinsip desain antarmuka pengguna yang intuitif dan pengalaman pengguna yang optimal, termasuk penggunaan Figma.</p>
+                </div>
+            </div>
+            <div class="organization-card">
+                <div class="organization-image-container">
+                    <img src="images/STUDYOUTDOREQC.jpg" alt="Practice English in LauKawar With English Quantum Club">
+                    <div class="image-overlay">
+                        <span>+</span>
+                    </div>
+                </div>
+                <div class="organization-info">
+                    <h3>Practice English in LauKawar With English Quantum Club</h3>
+                    <p><strong>Peserta</strong></p>
+                    <p>Berpartisipasi dalam sesi praktik bahasa Inggris di LauKawar bersama English Quantum Club untuk meningkatkan kemampuan komunikasi lisan dalam lingkungan yang interaktif dan mendukung.</p>
+                </div>
+            </div>
+            <div class="organization-card">
+                <div class="organization-image-container">
+                    <img src="images/Learning EQC in Class.jpg" alt="Learning English Quantum Club in Class">
+                    <div class="image-overlay">
+                        <span>+</span>
+                    </div>
+                </div>
+                <div class="organization-info">
+                    <h3>Learning English Quantum Club in Class</h3>
+                    <p><strong>Peserta</strong></p>
+                    <p>Mengikuti kegiatan pembelajaran di kelas bersama English Quantum Club untuk memperkuat pemahaman tata bahasa dan kosakata bahasa Inggris melalui diskusi dan latihan terstruktur.</p>
+                </div>
+            </div>
+            <div class="organization-card">
+                <div class="organization-image-container">
+                    <img src="images/LARAVEL.jpg" alt="Class Backend Build With Laravel">
+                    <div class="image-overlay">
+                        <span>+</span>
+                    </div>
+                </div>
+                <div class="organization-info">
+                    <h3>Class Backend Build With Laravel</h3>
+                    <p><strong>Peserta</strong></p>
+                    <p>Menghadiri kelas pengembangan backend menggunakan Laravel untuk mempelajari framework PHP ini dalam membangun aplikasi web yang efisien dan terstruktur, termasuk konsep database dan API.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="relawan">
+    <h2 class="section-title">Relawan</h2>
+    <div class="relawan-grid">
+        <div class="organization-card">
+            <div class="organization-image-container">
+                <img src="images/RELAWAN.jpg" alt="Relawan KIP-Kuliah 2025">
+                <div class="image-overlay">
+                    <span>+</span>
+                </div>
+            </div>
+            <div class="organization-info">
+                <h3>Relawan KIP-Kuliah 2025</h3>
+                <p><strong>Relawan Pendidikan Ke Rumah Tahfidz Al Fazz</strong></p>
+                <p>Bertindak sebagai relawan untuk program KIP-Kuliah 2025, memberikan bimbingan dan bantuan kepada calon mahasiswa dalam proses pendaftaran, melengkapi persyaratan, serta memahami informasi terkait beasiswa untuk pendidikan tinggi.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
     <section id="certifications">
         <h2 class="section-title">Sertifikasi & Pelatihan</h2>
         <div class="cert-grid">
@@ -1170,8 +1317,9 @@
 
             const projectOverlays = document.querySelectorAll('.project-image-container .image-overlay');
             const certOverlays = document.querySelectorAll('.cert-image-container .image-overlay');
+            const organizationOverlays = document.querySelectorAll('.organization-image-container .image-overlay');
             
-            const allOverlays = [...projectOverlays, ...certOverlays].filter(overlay => overlay !== null);
+            const allOverlays = [...projectOverlays, ...certOverlays, ...organizationOverlays].filter(overlay => overlay !== null);
 
             allOverlays.forEach(overlay => {
                 overlay.addEventListener('click', function() {
