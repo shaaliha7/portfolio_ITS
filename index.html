@@ -7,13 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #6C63FF; 
-            --secondary-color: #6CC6FF; 
-            --accent-color: #ffe66d;    
-            --text-dark: #2c3e50;       
-            --text-light: #ecf0f1;    
-            --bg-light: #fdfdff;        
-            --bg-dark: #34495e;        
+            --primary-color: #6C63FF;
+            --secondary-color: #6CC6FF;
+            --accent-color: #ffe66d;
+            --text-dark: #2c3e50;
+            --text-light: #ecf0f1;
+            --bg-light: #fdfdff;
+            --bg-dark: #34495e;
         }
 
         body {
@@ -43,12 +43,11 @@
             overflow: hidden;
         }
 
-        /* Navigasi */
         nav {
             background-color: var(--bg-dark);
             padding: 15px 5%;
             display: flex;
-            justify-content: center; 
+            justify-content: center;
             align-items: center;
             position: sticky;
             top: 0;
@@ -57,9 +56,9 @@
         }
 
         .nav-links {
-            display: flex; 
-            flex-grow: 1; 
-            justify-content: center; 
+            display: flex;
+            justify-content: center;
+            width: auto;
         }
 
         nav a {
@@ -76,7 +75,6 @@
             color: #fff;
         }
 
-       
         .hamburger-menu {
             display: none;
             background: none;
@@ -84,8 +82,9 @@
             cursor: pointer;
             padding: 10px;
             z-index: 1001;
-            position: absolute; 
-            visibility: hidden; 
+            position: absolute;
+            visibility: hidden;
+            left: -9999px;
         }
 
         .hamburger-menu .bar {
@@ -106,7 +105,6 @@
         .hamburger-menu.active .bar:nth-child(3) {
             transform: translateY(-8px) rotate(-45deg);
         }
-
 
         #hero {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
@@ -196,8 +194,6 @@
         #contact .section-title::after {
             background-color: var(--accent-color);
         }
-        /* ------------------------------------------- */
-
 
         #about {
             background-color: var(--bg-light);
@@ -244,7 +240,6 @@
             color: var(--text-dark);
         }
 
-        /* Skills Section */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -325,7 +320,6 @@
             font-size: 1.1em;
         }
 
-        /* Projects Section */
         #projects {
             background-color: #e0f2f7;
             padding: 80px 5%;
@@ -371,7 +365,6 @@
             object-fit: cover;
             display: block;
         }
-
 
         .project-info {
             padding: 25px;
@@ -506,7 +499,6 @@
             color: #555;
         }
 
-        /* Gaya Baru untuk Section Sertifikasi */
         #certifications {
             background-color: #e6f7ff;
             padding: 80px 5%;
@@ -645,7 +637,6 @@
             filter: brightness(0) invert(1);
         }
 
-        /* Footer */
         footer {
             background-color: var(--bg-dark);
             color: var(--text-light);
@@ -654,7 +645,6 @@
             font-size: 0.7em;
         }
 
-        /* Responsiveness */
         @media (max-width: 768px) {
             #hero h1 {
                 font-size: 2.5em;
@@ -665,22 +655,23 @@
             }
 
             nav {
-                flex-direction: row; 
+                flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
             }
 
             .hamburger-menu {
-                display: block; 
-                order: 2; 
-                position: static; 
+                display: block;
+                order: 2;
+                position: static;
                 visibility: visible;
+                left: auto;
             }
 
             .nav-links {
-                display: none; 
-                flex-direction: column; 
-                background-color: var(--bg-dark); 
+                display: none;
+                flex-direction: column;
+                background-color: var(--bg-dark);
                 position: absolute;
                 top: 100%;
                 left: 0;
@@ -692,25 +683,25 @@
                 max-height: 0;
                 opacity: 0;
                 pointer-events: none;
-                flex-grow: 0; 
+                flex-grow: 0;
             }
 
             .nav-links.active {
-                display: flex; 
+                display: flex;
                 max-height: 300px;
                 opacity: 1;
                 pointer-events: auto;
             }
 
             .nav-links a {
-                margin: 0; 
-                padding: 15px 20px; 
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-                text-align: left; 
+                margin: 0;
+                padding: 15px 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                text-align: left;
             }
 
             .nav-links a:last-child {
-                border-bottom: none; 
+                border-bottom: none;
             }
 
             #about .about-content {
@@ -760,7 +751,7 @@
                 left: 20px;
                 transform: translateX(-50%);
             }
-             .timeline-item.left .timeline-item-marker,
+            .timeline-item.left .timeline-item-marker,
             .timeline-item.right .timeline-item-marker {
                 transform: translateX(-50%);
                 left: 20px;
@@ -988,13 +979,13 @@
 
             hamburger.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
-                hamburger.classList.toggle('active'); 
+                hamburger.classList.toggle('active');
             });
 
             navItems.forEach(item => {
                 item.addEventListener('click', function() {
                     navLinks.classList.remove('active');
-                    hamburger.classList.remove('active'); 
+                    hamburger.classList.remove('active');
                 });
             });
         });
