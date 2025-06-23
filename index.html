@@ -224,7 +224,6 @@
             margin-bottom: 20px;
             position: relative;
             overflow: hidden;
-            /* cursor: pointer; Dihapus karena klik sekarang di overlay */
         }
 
         .about-image-wrapper:hover {
@@ -240,7 +239,6 @@
             display: block;
             border: none;
             box-shadow: none;
-            /* cursor: pointer; Dihapus karena klik sekarang di overlay */
         }
 
         .skills-container {
@@ -368,7 +366,6 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            /* cursor: pointer; Dihapus karena klik sekarang di overlay */
         }
 
         .project-info {
@@ -549,7 +546,6 @@
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             position: relative;
-            /* cursor: pointer; Dihapus karena klik sekarang di overlay */
         }
 
         .cert-image-container img {
@@ -559,7 +555,6 @@
             object-fit: contain;
             object-position: center;
             transition: transform 0.3s ease;
-            /* cursor: pointer; Dihapus karena klik sekarang di overlay */
         }
 
         .cert-image-container img:hover {
@@ -693,6 +688,7 @@
             cursor: pointer;
         }
 
+        /* Styling for image overlay (still applies to projects and certs) */
         .image-overlay {
             position: absolute;
             top: 0;
@@ -705,7 +701,7 @@
             align-items: center;
             opacity: 0;
             transition: opacity 0.3s ease;
-            cursor: pointer; /* Pastikan ini ada agar overlay bisa diklik */
+            cursor: pointer;
             z-index: 5;
         }
 
@@ -718,14 +714,11 @@
         }
 
         .project-card:hover .image-overlay,
-        .cert-card:hover .image-overlay,
-        .about-image-wrapper:hover .image-overlay {
+        .cert-card:hover .image-overlay { /* about-image-wrapper dihapus dari sini */
             opacity: 1;
         }
         
-        .about-image-wrapper .image-overlay {
-            border-radius: 50%;
-        }
+        /* .about-image-wrapper .image-overlay { border-radius: 50%; } Dihapus karena tidak ada overlay lagi di sini */
 
         @media (max-width: 768px) {
             #hero h1 {
@@ -887,10 +880,7 @@
         <div class="about-content">
             <div class="about-image-wrapper">
                 <img src="images/fotodiri.png" alt="Foto Profil Siti Noor Shaliha">
-                <div class="image-overlay">
-                    <span>+</span>
                 </div>
-            </div>
             <div class="text-content">
                 <p>Halo! Saya Siti Noor Shaliha, seorang mahasiswa Sistem Informasi dengan minat mendalam di bidang administrasi, pengelolaan dokumen, pengelolaan jurnal ilmiah, serta pengembangan aplikasi berbasis web dan desain UI/UX.</p>
                 <p>Selama perjalanan akademik saya di STMIK Triguna Dharma, saya tidak hanya mendalami teori tetapi juga terlibat aktif dalam berbagai proyek praktis. Saya memiliki pengalaman sebagai sekretaris organisasi mahasiswa, pengelola jurnal ilmiah, serta pengembang web dan desain UI/UX untuk proyek e-commerce.</p>
@@ -1100,17 +1090,16 @@
             const lightboxImg = document.getElementById('lightbox-img');
             const closeBtn = document.querySelector('.close-btn');
 
-            // Mengubah seleksi dari gambar menjadi elemen overlay
+            // Hanya memilih overlay untuk proyek dan sertifikasi
             const projectOverlays = document.querySelectorAll('.project-image-container .image-overlay');
             const certOverlays = document.querySelectorAll('.cert-image-container .image-overlay');
-            const aboutOverlay = document.querySelector('.about-image-wrapper .image-overlay');
+            // 'aboutOverlay' telah dihapus dari sini
 
-            // Menggabungkan semua overlay ke dalam satu NodeList
-            const allOverlays = [...projectOverlays, ...certOverlays, aboutOverlay].filter(overlay => overlay !== null);
+            // Menggabungkan semua overlay yang masih relevan ke dalam satu NodeList
+            const allOverlays = [...projectOverlays, ...certOverlays].filter(overlay => overlay !== null);
 
             allOverlays.forEach(overlay => {
                 overlay.addEventListener('click', function() {
-                    // Ketika overlay diklik, cari elemen gambar (img) di dalam parent yang sama
                     const imgElement = this.parentElement.querySelector('img');
                     if (imgElement) {
                         lightbox.style.display = 'block';
@@ -1119,7 +1108,6 @@
                 });
             });
 
-            // Logika untuk menutup lightbox tetap sama
             closeBtn.addEventListener('click', function() {
                 lightbox.style.display = 'none';
             });
