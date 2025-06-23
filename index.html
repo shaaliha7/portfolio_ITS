@@ -7,13 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #6C63FF; /* Ungu Kebiruan */
-            --secondary-color: #6CC6FF; /* Biru Muda Cerah */
-            --accent-color: #ffe66d;    /* Kuning Cerah */
-            --text-dark: #2c3e50;       /* Biru Gelap */
-            --text-light: #ecf0f1;      /* Abu-abu Terang */
-            --bg-light: #fdfdff;        /* Hampir Putih */
-            --bg-dark: #34495e;         /* Biru Keabuan Gelap */
+            --primary-color: #6C63FF; 
+            --secondary-color: #6CC6FF; 
+            --accent-color: #ffe66d;    
+            --text-dark: #2c3e50;       
+            --text-light: #ecf0f1;    
+            --bg-light: #fdfdff;        
+            --bg-dark: #34495e;        
         }
 
         body {
@@ -23,7 +23,7 @@
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
-            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+            scroll-behavior: smooth;
         }
 
         h1, h2, h3, h4 {
@@ -48,8 +48,8 @@
             background-color: var(--bg-dark);
             padding: 15px 5%;
             display: flex;
-            justify-content: space-between; /* Menempatkan hamburger dan link terpisah */
-            align-items: center; /* Menyelaraskan secara vertikal */
+            justify-content: center; 
+            align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -57,7 +57,9 @@
         }
 
         .nav-links {
-            display: flex; /* Untuk desktop, tautan tetap horizontal */
+            display: flex; 
+            flex-grow: 1; 
+            justify-content: center; 
         }
 
         nav a {
@@ -74,27 +76,27 @@
             color: #fff;
         }
 
-        /* Hamburger Menu Styles */
+       
         .hamburger-menu {
-            display: none; /* Sembunyikan di desktop */
+            display: none;
             background: none;
             border: none;
             cursor: pointer;
             padding: 10px;
             z-index: 1001;
-            /* Pastikan di atas elemen lain */
+            position: absolute; 
+            visibility: hidden; 
         }
 
         .hamburger-menu .bar {
             display: block;
             width: 25px;
             height: 3px;
-            background-color: var(--text-light); /* Warna sesuai tema nav */
+            background-color: var(--text-light);
             margin: 5px 0;
             transition: all 0.3s ease;
         }
 
-        /* Animasi ikon hamburger */
         .hamburger-menu.active .bar:nth-child(1) {
             transform: translateY(8px) rotate(45deg);
         }
@@ -106,7 +108,6 @@
         }
 
 
-        /* Hero Section (Home) */
         #hero {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
             background-size: 400% 400%;
@@ -164,7 +165,6 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
         }
 
-        /* --- Gaya Judul Baru: Garis Dekoratif --- */
         .section-title {
             font-size: 2em;
             color: var(--primary-color);
@@ -189,7 +189,6 @@
             width: 120px;
         }
 
-        /* Override untuk Contact Section agar tetap putih */
         #contact .section-title {
             color: #fff;
         }
@@ -200,7 +199,6 @@
         /* ------------------------------------------- */
 
 
-        /* About Section */
         #about {
             background-color: var(--bg-light);
             padding: 80px 5%;
@@ -357,7 +355,6 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
-        /* --- Gaya untuk Wadah Gambar Proyek (Rasio Aspek 4:3) --- */
         .project-image-container {
             position: relative;
             width: 100%;
@@ -374,7 +371,7 @@
             object-fit: cover;
             display: block;
         }
-        /* --------------------------------------------------------------- */
+
 
         .project-info {
             padding: 25px;
@@ -391,7 +388,6 @@
             color: #555;
         }
 
-        /* Gaya Baru untuk Section Pengalaman */
         #experience {
             background-color: #f8f9fa;
             padding: 80px 5%;
@@ -607,7 +603,6 @@
             z-index: 0;
         }
 
-        /* Contact Section */
         #contact {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
             background-size: 400% 400%;
@@ -670,49 +665,52 @@
             }
 
             nav {
-                flex-direction: row; /* Kembali ke row untuk menempatkan hamburger di satu sisi */
-                justify-content: space-between; /* Hamburger di kiri/kanan, konten lain di sisi lain */
+                flex-direction: row; 
+                justify-content: space-between;
                 align-items: center;
             }
 
             .hamburger-menu {
-                display: block; /* Tampilkan hamburger di mobile */
-                order: 2; /* Posisikan hamburger di sebelah kanan */
+                display: block; 
+                order: 2; 
+                position: static; 
+                visibility: visible;
             }
 
             .nav-links {
-                display: none; /* Sembunyikan tautan secara default di mobile */
-                flex-direction: column; /* Tautan akan disusun vertikal */
-                background-color: var(--bg-dark); /* Latar belakang menu dropdown */
+                display: none; 
+                flex-direction: column; 
+                background-color: var(--bg-dark); 
                 position: absolute;
-                top: 100%; /* Di bawah navbar */
+                top: 100%;
                 left: 0;
                 width: 100%;
                 box-shadow: 0 8px 16px rgba(0,0,0,0.2);
                 border-radius: 0 0 8px 8px;
-                overflow: hidden; /* Pastikan tidak ada overflow saat transisi */
-                transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Animasi dropdown */
-                max-height: 0; /* Awalnya tersembunyi */
+                overflow: hidden;
+                transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+                max-height: 0;
                 opacity: 0;
-                pointer-events: none; /* Nonaktifkan interaksi saat tersembunyi */
+                pointer-events: none;
+                flex-grow: 0; 
             }
 
             .nav-links.active {
-                display: flex; /* Tampilkan tautan saat class 'active' ada */
-                max-height: 300px; /* Tinggi maksimum yang cukup untuk semua tautan */
+                display: flex; 
+                max-height: 300px;
                 opacity: 1;
-                pointer-events: auto; /* Aktifkan interaksi */
+                pointer-events: auto;
             }
 
             .nav-links a {
-                margin: 0; /* Hapus margin horizontal */
-                padding: 15px 20px; /* Padding lebih besar untuk sentuhan mudah */
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Garis pemisah antar item */
-                text-align: left; /* Teks rata kiri */
+                margin: 0; 
+                padding: 15px 20px; 
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+                text-align: left; 
             }
 
             .nav-links a:last-child {
-                border-bottom: none; /* Hapus border di item terakhir */
+                border-bottom: none; 
             }
 
             #about .about-content {
@@ -735,7 +733,6 @@
                 grid-template-columns: 1fr;
             }
 
-            /* Responsiveness untuk Timeline Pengalaman */
             .timeline::before {
                 left: 20px;
                 transform: translateX(0);
@@ -769,7 +766,6 @@
                 left: 20px;
             }
 
-            /* Responsiveness untuk Sertifikasi */
             .cert-image-container {
                 max-width: none;
             }
@@ -992,13 +988,13 @@
 
             hamburger.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
-                hamburger.classList.toggle('active'); // Tambahkan ini untuk animasi ikon hamburger
+                hamburger.classList.toggle('active'); 
             });
 
             navItems.forEach(item => {
                 item.addEventListener('click', function() {
                     navLinks.classList.remove('active');
-                    hamburger.classList.remove('active'); // Tutup ikon hamburger juga
+                    hamburger.classList.remove('active'); 
                 });
             });
         });
