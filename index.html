@@ -84,7 +84,7 @@
             z-index: 1001;
             position: absolute;
             visibility: hidden;
-            left: -9999px; /* Menyembunyikan dari flow normal dan aksesibilitas saat tidak aktif */
+            left: -9999px;
         }
 
         .hamburger-menu .bar {
@@ -665,7 +665,7 @@
                 order: 2;
                 position: static;
                 visibility: visible;
-                left: auto; /* Mengatur ulang left untuk visibility */
+                left: auto;
             }
 
             .nav-links {
@@ -688,26 +688,21 @@
 
             .nav-links.active {
                 display: flex;
-                max-height: 300px; /* Sesuaikan jika perlu untuk menampung semua link */
+                max-height: 300px;
                 opacity: 1;
                 pointer-events: auto;
             }
 
-            /* --- MODIFIKASI DIMULAI DI SINI --- */
-            /* Terapkan padding dan border-bottom yang konsisten ke semua tautan menu di tampilan mobile */
             .nav-links a {
                 margin: 0;
-                padding: 15px 20px; /* Pastikan padding konsisten untuk semua item */
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Tambahkan border-bottom ke semua item */
+                padding: 15px 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                 text-align: left;
             }
 
-            /* Hapus aturan spesifik untuk last-child jika ada yang menimpa */
-            /* Ini penting karena sebelumnya mungkin ada aturan yang menimpa border-bottom untuk last-child */
             .nav-links a:last-child {
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Pastikan last-child juga memiliki border */
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
-            /* --- MODIFIKASI BERAKHIR DI SINI --- */
 
 
             #about .about-content {
