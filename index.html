@@ -84,7 +84,7 @@
             z-index: 1001;
             position: absolute;
             visibility: hidden;
-            left: -9999px;
+            left: -9999px; /* Menyembunyikan dari flow normal dan aksesibilitas saat tidak aktif */
         }
 
         .hamburger-menu .bar {
@@ -665,7 +665,7 @@
                 order: 2;
                 position: static;
                 visibility: visible;
-                left: auto;
+                left: auto; /* Mengatur ulang left untuk visibility */
             }
 
             .nav-links {
@@ -688,7 +688,7 @@
 
             .nav-links.active {
                 display: flex;
-                max-height: 300px;
+                max-height: 300px; /* Sesuaikan jika perlu untuk menampung semua link */
                 opacity: 1;
                 pointer-events: auto;
             }
@@ -700,8 +700,11 @@
                 text-align: left;
             }
 
+            /* Hapus aturan ini atau modifikasi agar "Kontak" tetap memiliki padding/border yang sama */
             .nav-links a:last-child {
-                border-bottom: none;
+                /* border-bottom: none; */ /* Hapus baris ini */
+                /* Alternatif: pastikan padding tetap sama */
+                padding-bottom: 15px; /* Pastikan padding konsisten */
             }
 
             #about .about-content {
