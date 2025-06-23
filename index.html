@@ -214,20 +214,32 @@
             margin-bottom: 50px;
         }
 
-        #about img {
+        .about-image-wrapper {
             width: 280px;
             height: 280px;
             border-radius: 50%;
-            object-fit: cover;
             border: 8px solid var(--secondary-color);
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
             transition: transform 0.3s ease, border-color 0.3s ease;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
             cursor: pointer;
         }
 
-        #about img:hover {
+        .about-image-wrapper:hover {
             transform: scale(1.03);
             border-color: var(--primary-color);
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: none;
+            box-shadow: none;
         }
 
         .skills-container {
@@ -332,6 +344,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: left;
+            position: relative;
         }
 
         .project-card:hover {
@@ -534,6 +547,8 @@
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: relative;
+            cursor: pointer;
         }
 
         .cert-image-container img {
@@ -543,7 +558,6 @@
             object-fit: contain;
             object-position: center;
             transition: transform 0.3s ease;
-            cursor: pointer;
         }
 
         .cert-image-container img:hover {
@@ -677,6 +691,40 @@
             cursor: pointer;
         }
 
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .image-overlay span {
+            color: #fff;
+            font-size: 4em;
+            font-weight: bold;
+            line-height: 1;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .project-card:hover .image-overlay,
+        .cert-card:hover .image-overlay,
+        .about-image-wrapper:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .about-image-wrapper .image-overlay {
+            border-radius: 50%;
+        }
+
         @media (max-width: 768px) {
             #hero h1 {
                 font-size: 2.5em;
@@ -740,7 +788,7 @@
                 flex-direction: column;
                 text-align: center;
             }
-            #about img {
+            .about-image-wrapper {
                 margin-bottom: 20px;
             }
 
@@ -835,7 +883,12 @@
     <section id="about">
         <h2 class="section-title">Tentang Saya</h2>
         <div class="about-content">
-            <img src="images/fotodiri.png" alt="Foto Profil Siti Noor Shaliha">
+            <div class="about-image-wrapper">
+                <img src="images/fotodiri.png" alt="Foto Profil Siti Noor Shaliha">
+                <div class="image-overlay">
+                    <span>+</span>
+                </div>
+            </div>
             <div class="text-content">
                 <p>Halo! Saya Siti Noor Shaliha, seorang mahasiswa Sistem Informasi dengan minat mendalam di bidang administrasi, pengelolaan dokumen, pengelolaan jurnal ilmiah, serta pengembangan aplikasi berbasis web dan desain UI/UX.</p>
                 <p>Selama perjalanan akademik saya di STMIK Triguna Dharma, saya tidak hanya mendalami teori tetapi juga terlibat aktif dalam berbagai proyek praktis. Saya memiliki pengalaman sebagai sekretaris organisasi mahasiswa, pengelola jurnal ilmiah, serta pengembang web dan desain UI/UX untuk proyek e-commerce.</p>
@@ -875,6 +928,9 @@
             <div class="project-card">
                 <div class="project-image-container">
                     <img src="images/MARKETPLACE.png" alt="Project E-commerce">
+                    <div class="image-overlay">
+                        <span>+</span>
+                    </div>
                 </div>
                 <div class="project-info">
                     <h3>Desain Prototipe Aplikasi E-commerce</h3>
@@ -884,6 +940,9 @@
             <div class="project-card">
                 <div class="project-image-container">
                     <img src="images/JURNAL.jpg" alt="Project Jurnal">
+                    <div class="image-overlay">
+                        <span>+</span>
+                    </div>
                 </div>
                 <div class="project-info">
                     <h3>Pengelolaan Jurnal Ilmiah Dosen</h3>
@@ -893,6 +952,9 @@
             <div class="project-card">
                 <div class="project-image-container">
                     <img src="images/TRAVEL.png" alt="Project Travel Online">
+                    <div class="image-overlay">
+                        <span>+</span>
+                    </div>
                 </div>
                 <div class="project-info">
                     <h3>Desain Prototipe Aplikasi Travel Online</h3>
@@ -963,6 +1025,9 @@
             <div class="cert-card">
                 <div class="cert-image-container">
                     <img src="images/sertifikasi lsp.jpg" alt="Sertifikat Junior Graphic Design">
+                    <div class="image-overlay">
+                        <span>+</span>
+                    </div>
                 </div>
                 <h3>Junior Graphic Design</h3>
                 <p class="issuer"><strong>Badan Nasional Sertifikasi Profesi</strong></p>
@@ -972,6 +1037,9 @@
             <div class="cert-card">
                 <div class="cert-image-container">
                     <img src="images/contentcreatro.jpg" alt="Sertifikat Video Content Creator">
+                    <div class="image-overlay">
+                        <span>+</span>
+                    </div>
                 </div>
                 <h3>Video Content Creator</h3>
                 <p class="issuer"><strong>BBPSDMP Medan</strong></p>
@@ -984,7 +1052,7 @@
     <section id="contact">
         <h2 class="section-title">Terhubung dengan Saya</h2>
         <p>Mari berdiskusi lebih lanjut tentang proyek atau peluang kolaborasi!</p>
-        <div class="contact-info" style="margin-top: 30px;">
+        <div class="contact-info">
         </div>
         <div class="social-links">
             <a href="https://www.linkedin.com/in/siti-noor-shaliha-9370302a7" target="_blank" title="Kunjungi Profil LinkedIn Saya">
@@ -1032,7 +1100,7 @@
 
             const projectImages = document.querySelectorAll('.project-card img');
             const certImages = document.querySelectorAll('.cert-card img');
-            const aboutImage = document.querySelector('#about img');
+            const aboutImage = document.querySelector('.about-image-wrapper img');
 
             const allImages = [...projectImages, ...certImages, aboutImage].filter(img => img !== null);
 
