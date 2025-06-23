@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siti Noor Shaliha - Portofolio Kreatif</title>
+    <title>Siti Noor Shaliha - Portofolio Shaliha 2025</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -29,7 +29,7 @@
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
             color: var(--primary-color);
-            margin-bottom: 0.3em; /* Mengurangi jarak antar judul secara umum */
+            margin-bottom: 0.3em;
         }
 
         p {
@@ -37,10 +37,10 @@
         }
 
         section {
-            padding: 80px 5%; /* Padding atas bawah lebih besar */
+            padding: 80px 5%;
             text-align: center;
-            position: relative; /* Untuk animasi atau elemen absolut */
-            overflow: hidden; /* Pastikan tidak ada overflow dari gradien */
+            position: relative;
+            overflow: hidden;
         }
 
         /* Navigasi */
@@ -48,11 +48,16 @@
             background-color: var(--bg-dark);
             padding: 15px 5%;
             display: flex;
-            justify-content: center;
+            justify-content: space-between; /* Menempatkan hamburger dan link terpisah */
+            align-items: center; /* Menyelaraskan secara vertikal */
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex; /* Untuk desktop, tautan tetap horizontal */
         }
 
         nav a {
@@ -69,11 +74,43 @@
             color: #fff;
         }
 
+        /* Hamburger Menu Styles */
+        .hamburger-menu {
+            display: none; /* Sembunyikan di desktop */
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+            /* Pastikan di atas elemen lain */
+        }
+
+        .hamburger-menu .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-light); /* Warna sesuai tema nav */
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Animasi ikon hamburger */
+        .hamburger-menu.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger-menu.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger-menu.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+
         /* Hero Section (Home) */
         #hero {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
             background-size: 400% 400%;
-            animation: gradientAnimation 4s ease infinite; /* Durasi animasi dipercepat dari 8s menjadi 4s */
+            animation: gradientAnimation 4s ease infinite;
             color: #fff;
             min-height: 100vh;
             display: flex;
@@ -99,7 +136,7 @@
 
         #hero h1 {
             font-size: 3.5em;
-            margin-bottom: 0.1em; /* Mengurangi jarak di bawah h1 */
+            margin-bottom: 0.1em;
             color: #fff;
         }
 
@@ -129,27 +166,27 @@
 
         /* --- Gaya Judul Baru: Garis Dekoratif --- */
         .section-title {
-            font-size: 2em; /* Mengurangi ukuran font dari 2.5em menjadi 2em */
+            font-size: 2em;
             color: var(--primary-color);
-            margin-bottom: 50px; /* Jarak bawah yang lebih besar */
+            margin-bottom: 50px;
             position: relative;
-            display: inline-block; /* Agar bisa menerapkan efek ::before/::after dengan baik */
-            padding-bottom: 10px; /* Ruang untuk garis bawah */
+            display: inline-block;
+            padding-bottom: 10px;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 80px; /* Panjang garis */
-            height: 4px; /* Ketebalan garis */
-            background-color: var(--secondary-color); /* Warna garis */
-            margin: 10px auto 0 auto; /* Posisi garis di tengah bawah judul */
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0 auto;
             border-radius: 2px;
-            transition: width 0.3s ease; /* Transisi untuk efek hover */
+            transition: width 0.3s ease;
         }
 
         .section-title:hover::after {
-            width: 120px; /* Garis sedikit memanjang saat di-hover */
+            width: 120px;
         }
 
         /* Override untuk Contact Section agar tetap putih */
@@ -158,7 +195,7 @@
         }
 
         #contact .section-title::after {
-            background-color: var(--accent-color); /* Warna garis untuk contact section */
+            background-color: var(--accent-color);
         }
         /* ------------------------------------------- */
 
@@ -180,22 +217,22 @@
             max-width: 1000px;
             gap: 40px;
             text-align: left;
-            margin-bottom: 50px; /* Tambahan margin bawah sebelum skills */
+            margin-bottom: 50px;
         }
 
         #about img {
-            width: 280px; /* Ukuran gambar sedikit lebih besar */
+            width: 280px;
             height: 280px;
             border-radius: 50%;
             object-fit: cover;
             border: 8px solid var(--secondary-color);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* Bayangan lebih kuat */
-            transition: transform 0.3s ease, border-color 0.3s ease; /* Transisi untuk hover */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         #about img:hover {
-            transform: scale(1.03); /* Sedikit membesar saat di-hover */
-            border-color: var(--primary-color); /* Ubah warna border saat di-hover */
+            transform: scale(1.03);
+            border-color: var(--primary-color);
         }
 
         #about .text-content {
@@ -204,7 +241,7 @@
         }
 
         #about .text-content p:first-of-type {
-            font-size: 1.1em; /* Paragraf pertama sedikit lebih besar */
+            font-size: 1.1em;
             font-weight: 500;
             color: var(--text-dark);
         }
@@ -229,13 +266,13 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             text-align: left;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-            border-top: 5px solid transparent; /* Border atas transparan untuk efek hover */
+            border-top: 5px solid transparent;
         }
 
         .skills-column:hover {
             transform: translateY(-8px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            border-top: 5px solid var(--primary-color); /* Muncul border atas saat hover */
+            border-top: 5px solid var(--primary-color);
         }
 
         .skills-column h3 {
@@ -244,17 +281,17 @@
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 10px;
             margin-bottom: 15px;
-            position: relative; /* Untuk elemen dekoratif di judul */
+            position: relative;
         }
 
         .skills-column h3::after {
             content: '';
             position: absolute;
-            bottom: -2px; /* Sejajar dengan border-bottom */
+            bottom: -2px;
             left: 0;
-            width: 50px; /* Garis bawah yang lebih pendek */
+            width: 50px;
             height: 2px;
-            background-color: var(--primary-color); /* Warna aksen */
+            background-color: var(--primary-color);
         }
 
         .skills-column ul {
@@ -265,28 +302,28 @@
 
         .skills-column li {
             background-color: var(--bg-light);
-            padding: 12px 18px; /* Padding sedikit lebih besar */
-            margin-bottom: 12px; /* Jarak antar list item */
+            padding: 12px 18px;
+            margin-bottom: 12px;
             border-radius: 8px;
             display: flex;
             align-items: center;
             font-size: 0.95em;
             color: var(--text-dark);
-            transition: background-color 0.2s ease, box-shadow 0.2s ease; /* Hanya background dan shadow */
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
             position: relative;
             overflow: hidden;
         }
 
         .skills-column li:hover {
             background-color: #e6e6fa;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Bayangan lembut saat hover */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .skills-column li::before {
-            content: '✓'; /* Ikon centang sederhana */
+            content: '✓';
             color: var(--primary-color);
             font-weight: bold;
-            margin-right: 12px; /* Jarak ikon dari teks */
+            margin-right: 12px;
             font-size: 1.1em;
         }
 
@@ -324,9 +361,8 @@
         .project-image-container {
             position: relative;
             width: 100%;
-            /* (Tinggi / Lebar) * 100% = (768 / 1024) * 100% = 75% */
-            padding-bottom: 75%; /* Mengatur rasio aspek 4:3 */
-            overflow: hidden; /* Pastikan gambar tidak keluar dari wadah */
+            padding-bottom: 75%;
+            overflow: hidden;
         }
 
         .project-card img {
@@ -334,8 +370,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%; /* Gambar akan mengisi seluruh wadah aspect-ratio */
-            object-fit: cover; /* Pastikan gambar menutupi area tanpa terdistorsi */
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
         /* --------------------------------------------------------------- */
@@ -443,7 +479,7 @@
             height: 25px;
             background-color: var(--secondary-color);
             border-radius: 50%;
-            z-index: 3; /* Pastikan di atas garis */
+            z-index: 3;
             border: 3px solid var(--primary-color);
             box-shadow: 0 0 0 5px rgba(108, 99, 255, 0.2);
             left: 50%;
@@ -581,7 +617,7 @@
         }
 
         #contact h2 {
-            color: #fff; /* Pastikan judul di contact section tetap putih */
+            color: #fff;
         }
 
         #contact .social-links {
@@ -634,11 +670,49 @@
             }
 
             nav {
-                flex-direction: column;
-                padding: 10px 5%;
+                flex-direction: row; /* Kembali ke row untuk menempatkan hamburger di satu sisi */
+                justify-content: space-between; /* Hamburger di kiri/kanan, konten lain di sisi lain */
+                align-items: center;
             }
-            nav a {
-                margin: 5px 0;
+
+            .hamburger-menu {
+                display: block; /* Tampilkan hamburger di mobile */
+                order: 2; /* Posisikan hamburger di sebelah kanan */
+            }
+
+            .nav-links {
+                display: none; /* Sembunyikan tautan secara default di mobile */
+                flex-direction: column; /* Tautan akan disusun vertikal */
+                background-color: var(--bg-dark); /* Latar belakang menu dropdown */
+                position: absolute;
+                top: 100%; /* Di bawah navbar */
+                left: 0;
+                width: 100%;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+                border-radius: 0 0 8px 8px;
+                overflow: hidden; /* Pastikan tidak ada overflow saat transisi */
+                transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Animasi dropdown */
+                max-height: 0; /* Awalnya tersembunyi */
+                opacity: 0;
+                pointer-events: none; /* Nonaktifkan interaksi saat tersembunyi */
+            }
+
+            .nav-links.active {
+                display: flex; /* Tampilkan tautan saat class 'active' ada */
+                max-height: 300px; /* Tinggi maksimum yang cukup untuk semua tautan */
+                opacity: 1;
+                pointer-events: auto; /* Aktifkan interaksi */
+            }
+
+            .nav-links a {
+                margin: 0; /* Hapus margin horizontal */
+                padding: 15px 20px; /* Padding lebih besar untuk sentuhan mudah */
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Garis pemisah antar item */
+                text-align: left; /* Teks rata kiri */
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none; /* Hapus border di item terakhir */
             }
 
             #about .about-content {
@@ -701,7 +775,7 @@
             }
 
             .section-title {
-                font-size: 1.8em; /* Mengurangi ukuran font responsif dari 2em menjadi 1.8em */
+                font-size: 1.8em;
                 margin-bottom: 40px;
             }
             .section-title::after {
@@ -717,12 +791,20 @@
 <body>
 
     <nav>
-        <a href="#hero">Beranda</a>
-        <a href="#about">Tentang Saya</a>
-        <a href="#projects">Proyek</a>
-        <a href="#experience">Pengalaman</a>
-        <a href="#certifications">Sertifikasi</a>
-        <a href="#contact">Kontak</a>
+        <button class="hamburger-menu" aria-label="Toggle Navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <div class="nav-links">
+            <a href="#hero">Beranda</a>
+            <a href="#about">Tentang Saya</a>
+            <a href="#projects">Proyek</a>
+            <a href="#experience">Pengalaman</a>
+            <a href="#certifications">Sertifikasi</a>
+            <a href="#contact">Kontak</a>
+        </div>
     </nav>
 
     <section id="hero">
@@ -901,6 +983,26 @@
     <footer>
         <p>&copy; 2025 Siti Noor Shaliha. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navLinks = document.querySelector('.nav-links');
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active'); // Tambahkan ini untuk animasi ikon hamburger
+            });
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active'); // Tutup ikon hamburger juga
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
