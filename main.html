@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siti Noor Shaliha - Portofolio Kreatif</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6C63FF; /* Ungu Kebiruan */
+            --secondary-color: #6CC6FF; /* Biru Muda Cerah */
+            --accent-color: #ffe66d;    /* Kuning Cerah */
+            --text-dark: #2c3e50;       /* Biru Gelap */
+            --text-light: #ecf0f1;      /* Abu-abu Terang */
+            --bg-light: #fdfdff;        /* Hampir Putih */
+            --bg-dark: #34495e;         /* Biru Keabuan Gelap */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 0.3em; /* Mengurangi jarak antar judul secara umum */
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        section {
+            padding: 80px 5%; /* Padding atas bawah lebih besar */
+            text-align: center;
+            position: relative; /* Untuk animasi atau elemen absolut */
+            overflow: hidden; /* Pastikan tidak ada overflow dari gradien */
+        }
+
+        /* Navigasi */
+        nav {
+            background-color: var(--bg-dark);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Hero Section (Home) */
+        #hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            background-size: 400% 400%;
+            animation: gradientAnimation 4s ease infinite; /* Durasi animasi dipercepat dari 8s menjadi 4s */
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        #hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 0.1em; /* Mengurangi jarak di bawah h1 */
+            color: #fff;
+        }
+
+        #hero p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin-bottom: 1.5em;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            background-color: #ffd700;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        /* --- Gaya Judul Baru: Garis Dekoratif --- */
+        .section-title {
+            font-size: 2em; /* Mengurangi ukuran font dari 2.5em menjadi 2em */
+            color: var(--primary-color);
+            margin-bottom: 50px; /* Jarak bawah yang lebih besar */
+            position: relative;
+            display: inline-block; /* Agar bisa menerapkan efek ::before/::after dengan baik */
+            padding-bottom: 10px; /* Ruang untuk garis bawah */
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px; /* Panjang garis */
+            height: 4px; /* Ketebalan garis */
+            background-color: var(--secondary-color); /* Warna garis */
+            margin: 10px auto 0 auto; /* Posisi garis di tengah bawah judul */
+            border-radius: 2px;
+            transition: width 0.3s ease; /* Transisi untuk efek hover */
+        }
+
+        .section-title:hover::after {
+            width: 120px; /* Garis sedikit memanjang saat di-hover */
+        }
+
+        /* Override untuk Contact Section agar tetap putih */
+        #contact .section-title {
+            color: #fff;
+        }
+
+        #contact .section-title::after {
+            background-color: var(--accent-color); /* Warna garis untuk contact section */
+        }
+        /* ------------------------------------------- */
+
+
+        /* About Section */
+        #about {
+            background-color: var(--bg-light);
+            padding: 80px 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #about .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            max-width: 1000px;
+            gap: 40px;
+            text-align: left;
+            margin-bottom: 50px; /* Tambahan margin bawah sebelum skills */
+        }
+
+        #about img {
+            width: 280px; /* Ukuran gambar sedikit lebih besar */
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid var(--secondary-color);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* Bayangan lebih kuat */
+            transition: transform 0.3s ease, border-color 0.3s ease; /* Transisi untuk hover */
+        }
+
+        #about img:hover {
+            transform: scale(1.03); /* Sedikit membesar saat di-hover */
+            border-color: var(--primary-color); /* Ubah warna border saat di-hover */
+        }
+
+        #about .text-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        #about .text-content p:first-of-type {
+            font-size: 1.1em; /* Paragraf pertama sedikit lebih besar */
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .skills-column {
+            flex: 1;
+            min-width: 280px;
+            padding: 25px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+            border-top: 5px solid transparent; /* Border atas transparan untuk efek hover */
+        }
+
+        .skills-column:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-top: 5px solid var(--primary-color); /* Muncul border atas saat hover */
+        }
+
+        .skills-column h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            position: relative; /* Untuk elemen dekoratif di judul */
+        }
+
+        .skills-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; /* Sejajar dengan border-bottom */
+            left: 0;
+            width: 50px; /* Garis bawah yang lebih pendek */
+            height: 2px;
+            background-color: var(--primary-color); /* Warna aksen */
+        }
+
+        .skills-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-column li {
+            background-color: var(--bg-light);
+            padding: 12px 18px; /* Padding sedikit lebih besar */
+            margin-bottom: 12px; /* Jarak antar list item */
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            font-size: 0.95em;
+            color: var(--text-dark);
+            transition: background-color 0.2s ease, box-shadow 0.2s ease; /* Hanya background dan shadow */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-column li:hover {
+            background-color: #e6e6fa;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Bayangan lembut saat hover */
+        }
+
+        .skills-column li::before {
+            content: '✓'; /* Ikon centang sederhana */
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 12px; /* Jarak ikon dari teks */
+            font-size: 1.1em;
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: #e0f2f7;
+            padding: 80px 5%;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .project-card {
+            background-color: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        /* --- Gaya untuk Wadah Gambar Proyek (Rasio Aspek 4:3) --- */
+        .project-image-container {
+            position: relative;
+            width: 100%;
+            /* (Tinggi / Lebar) * 100% = (768 / 1024) * 100% = 75% */
+            padding-bottom: 75%; /* Mengatur rasio aspek 4:3 */
+            overflow: hidden; /* Pastikan gambar tidak keluar dari wadah */
+        }
+
+        .project-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; /* Gambar akan mengisi seluruh wadah aspect-ratio */
+            object-fit: cover; /* Pastikan gambar menutupi area tanpa terdistorsi */
+            display: block;
+        }
+        /* --------------------------------------------------------------- */
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            color: var(--text-dark);
+            font-size: 1.5em;
+            margin-bottom: 0.3em;
+        }
+
+        .project-info p {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        /* Gaya Baru untuk Section Pengalaman */
+        #experience {
+            background-color: #f8f9fa;
+            padding: 80px 5%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background-color: var(--primary-color);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item-content {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            width: 45%;
+            text-align: left;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 2;
+        }
+
+        .timeline-item-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+        }
+
+        .timeline-item.left .timeline-item-content {
+            margin-right: auto;
+        }
+
+        .timeline-item.right .timeline-item-content {
+            margin-left: auto;
+        }
+
+        .timeline-item-content::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            top: 20px;
+        }
+
+        .timeline-item.left .timeline-item-content::after {
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #fff;
+            right: -10px;
+        }
+
+        .timeline-item.right .timeline-item-content::after {
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #fff transparent transparent;
+            left: -10px;
+        }
+
+        .timeline-item-marker {
+            position: absolute;
+            top: 25px;
+            width: 25px;
+            height: 25px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            z-index: 3; /* Pastikan di atas garis */
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 0 5px rgba(108, 99, 255, 0.2);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 3px;
+            font-size: 1.3em;
+        }
+
+        .timeline-item p.company {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p.duration {
+            font-size: 0.85em;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .timeline-item p {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        /* Gaya Baru untuk Section Sertifikasi */
+        #certifications {
+            background-color: #e6f7ff;
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cert-card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+
+        .cert-image-container {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin: 0 auto 15px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .cert-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .cert-image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .cert-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 3px;
+            font-size: 1.4em;
+        }
+
+        .cert-card p.issuer {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .cert-card p.date {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .cert-card p.description {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        .cert-card::before {
+            content: '★';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2em;
+            color: var(--accent-color);
+            opacity: 0.3;
+            transform: rotate(-15deg);
+            z-index: 0;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            background-size: 400% 400%;
+            animation: gradientAnimation 4s ease infinite;
+            color: #fff;
+            padding: 80px 5%;
+        }
+
+        #contact h2 {
+            color: #fff; /* Pastikan judul di contact section tetap putih */
+        }
+
+        #contact .social-links {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        #contact .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        #contact .social-links a:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        #contact .social-links img {
+            width: 35px;
+            height: 35px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 10px 5%;
+            text-align: center;
+            font-size: 0.7em;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5em;
+            }
+
+            #hero p {
+                font-size: 1em;
+            }
+
+            nav {
+                flex-direction: column;
+                padding: 10px 5%;
+            }
+            nav a {
+                margin: 5px 0;
+            }
+
+            #about .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            #about img {
+                margin-bottom: 20px;
+            }
+
+            .skills-container {
+                flex-direction: column;
+            }
+
+            .skills-column {
+                width: 100%;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Responsiveness untuk Timeline Pengalaman */
+            .timeline::before {
+                left: 20px;
+                transform: translateX(0);
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 30px;
+            }
+
+            .timeline-item-content {
+                width: calc(100% - 60px);
+                margin-left: 40px !important;
+            }
+
+            .timeline-item-content::after {
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #fff transparent transparent;
+                left: -10px;
+                top: 20px;
+            }
+
+            .timeline-item-marker {
+                left: 20px;
+                transform: translateX(-50%);
+            }
+             .timeline-item.left .timeline-item-marker,
+            .timeline-item.right .timeline-item-marker {
+                transform: translateX(-50%);
+                left: 20px;
+            }
+
+            /* Responsiveness untuk Sertifikasi */
+            .cert-image-container {
+                max-width: none;
+            }
+
+            .section-title {
+                font-size: 1.8em; /* Mengurangi ukuran font responsif dari 2em menjadi 1.8em */
+                margin-bottom: 40px;
+            }
+            .section-title::after {
+                width: 60px;
+                height: 3px;
+            }
+            .section-title:hover::after {
+                width: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#hero">Beranda</a>
+        <a href="#about">Tentang Saya</a>
+        <a href="#projects">Proyek</a>
+        <a href="#experience">Pengalaman</a>
+        <a href="#certifications">Sertifikasi</a>
+        <a href="#contact">Kontak</a>
+    </nav>
+
+    <section id="hero">
+        <h1>Siti Noor Shaliha</h1>
+        <p>Mengkombinasikan keahlian dalam sistem informasi, pengembangan web, desain UI/UX, dan administrasi, saya bersemangat menciptakan solusi digital yang efisien dan user-friendly, serta mendukung pengelolaan informasi yang terstruktur.</p>
+        <a href="#projects" class="btn">Lihat Proyek Saya</a>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Tentang Saya</h2>
+        <div class="about-content">
+            <img src="images/fotodiri.png" alt="Foto Profil Siti Noor Shaliha">
+            <div class="text-content">
+                <p>Halo! Saya Siti Noor Shaliha, seorang mahasiswa Sistem Informasi dengan minat mendalam di bidang administrasi, pengelolaan dokumen, pengelolaan jurnal ilmiah, serta pengembangan aplikasi berbasis web dan desain UI/UX.</p>
+                <p>Selama perjalanan akademik saya di STMIK Triguna Dharma, saya tidak hanya mendalami teori tetapi juga terlibat aktif dalam berbagai proyek praktis. Saya memiliki pengalaman sebagai sekretaris organisasi mahasiswa, pengelola jurnal ilmiah, serta pengembang web dan desain UI/UX untuk proyek e-commerce.</p>
+                <p>Saya adalah individu yang berorientasi pada hasil, adaptif, dan selalu antusias untuk terus belajar serta berkontribusi dalam tim. Mari berkolaborasi menciptakan sesuatu yang inovatif dan berdampak!</p>
+            </div>
+        </div>
+        <h2 class="section-title">Keahlian Saya</h2>
+        <div class="skills-container">
+            <div class="skills-column">
+                <h3>Hard Skills</h3>
+                <ul>
+                    <li>Microsoft Office (Word, Excel, PowerPoint)</li>
+                    <li>CorelDRAW & Canva</li>
+                    <li>HTML, CSS, JavaScript, PHP, MySQL</li>
+                    <li>OJS (Open Journal System)</li>
+                    <li>Figma (UI/UX Design)</li>
+                    <li>Administrasi dan Dokumentasi</li>
+                </ul>
+            </div>
+            <div class="skills-column">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>Time Management</li>
+                    <li>Public Speaking</li>
+                    <li>Customer Service</li>
+                    <li>Teamwork & Communication</li>
+                    <li>Problem Solving</li>
+                    <li>Adaptability</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Proyek Pilihan</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="images/MARKETPLACE.png" alt="Project E-commerce">
+                </div>
+                <div class="project-info">
+                    <h3>Desain Prototipe Aplikasi E-commerce</h3>
+                    <p>Mendesain prototipe aplikasi e-commerce menggunakan Figma, meliputi wireframe, flowchart user journey, dan prototipe interaktif dengan standar desain user-centric. Menganalisis kebutuhan pengguna, menentukan hierarki visual, dan memastikan pengalaman pengguna yang optimal di setiap tahap perjalanan pengguna (user flow). Mendokumentasikan desain dan spesifikasi teknis untuk pengembangan lebih lanjut.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="images/JURNAL.jpg" alt="Project Jurnal">
+                </div>
+                <div class="project-info">
+                    <h3>Pengelolaan Jurnal Ilmiah Dosen</h3>
+                    <p>Berperan sebagai bagian dari tim pengelola jurnal ilmiah dosen, bertanggung jawab dalam penyuntingan konten, pengecekan metadata, hingga submit artikel ke sistem OJS (Open Journal System) secara tepat waktu dan sesuai standar publikasi.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="images/TRAVEL.png" alt="Project Travel Online">
+                </div>
+                <div class="project-info">
+                    <h3>Desain Prototipe Aplikasi Travel Online</h3>
+                    <p>Mendesain prototipe aplikasi travel online dengan fokus pada pengalaman pengguna (UX) yang mulus dan antarmuka (UI) yang menarik, mencakup fitur pencarian, pemesanan, dan manajemen perjalanan. Membuat wireframe, mockup, dan prototipe interaktif menggunakan Figma.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Pengalaman</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-item-content">
+                    <h3>Praktek Kerja Industri (PKL)</h3>
+                    <p class="company"><strong>BPDASHIL WAMPU SEI ULAR</strong> - Staf Magang Administrasi</p>
+                    <p class="duration">4 Bulan</p>
+                    <p>Menyelesaikan program magang selama 4 bulan di BPDASHIL WAMPU SEI ULAR dengan predikat "Amat Baik", menguasai sistem administrasi instansi pemerintahan dan pengelolaan data operasional.</p>
+                </div>
+                <div class="timeline-item-marker"></div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-item-content">
+                    <h3>Sekretaris Divisi Pendidikan</h3>
+                    <p class="company"><strong>Lembaga Dakwah Kampus STMIK Triguna Dharma</strong></p>
+                    <p class="duration">April 2023 - Sekarang</p>
+                    <p>Mengatur jadwal program kerja divisi seperti mentoring, kajian rutin, dan pelatihan, serta memastikan pelaksanaannya berjalan sesuai rencana. Berkoordinasi dengan pengurus lainnya untuk mendukung pelaksanaan program dakwah dan pendidikan berbasis nilai-nilai Islam. Membantu dalam penyusunan modul, materi kajian, serta publikasi kegiatan edukatif divisi kepada mahasiswa.</p>
+                </div>
+                <div class="timeline-item-marker"></div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="timeline-item-content">
+                    <h3>Anggota Divisi Infokom</h3>
+                    <p class="company"><strong>Cyber Programming Club STMIK Triguna Dharma</strong></p>
+                    <p class="duration">April 2024 - Sekarang</p>
+                    <p>Membantu pembuatan dan penyebaran konten publikasi di media sosial serta dokumentasi kegiatan internal organisasi. Belajar dan berkontribusi dalam desain grafis serta pembuatan konten visual menggunakan CorelDRAW dan Canva. Mendukung pengelolaan sistem informasi internal divisi serta turut serta dalam pengembangan kemampuan web programming dasar.</p>
+                </div>
+                <div class="timeline-item-marker"></div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-item-content">
+                    <h3>Customer Service & Kasir</h3>
+                    <p class="company"><strong>Toko Baju Sekolah AINI</strong></p>
+                    <p class="duration">Juli 2022 - Desember 2022</p>
+                    <p>Melayani pelanggan dalam pembelian seragam sekolah dan perlengkapan lainnya dengan sikap ramah dan profesional. Mengoperasikan mesin kasir untuk transaksi tunai dan non-tunai, mencatat penjualan harian, serta mengelola laporan keuangan harian. Memberikan informasi produk secara detail kepada pelanggan dan membantu pemilihan ukuran/paket seragam sesuai kebutuhan.</p>
+                </div>
+                <div class="timeline-item-marker"></div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="timeline-item-content">
+                    <h3>Operator & Staff Administrasi</h3>
+                    <p class="company"><strong>Usaha Fotocopy Bersama</strong></p>
+                    <p class="duration">Januari 2023 - September 2023</p>
+                    <p>Melayani kebutuhan pelanggan dalam pencetakan dokumen, penjilidan, laminating, dan keperluan administrasi lainnya. Mengoperasikan mesin fotokopi, printer, dan perangkat komputer untuk penyelesaian berbagai dokumen. Menyusun dokumen formal sesuai kebutuhan pelanggan, seperti surat resmi, laporan, dan formulir standar. Menjaga kualitas hasil cetak dan kerapian dokumen untuk kepuasan pelanggan.</p>
+                </div>
+                <div class="timeline-item-marker"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2 class="section-title">Sertifikasi & Pelatihan</h2>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-image-container">
+                    <img src="images/sertifikasi lsp.jpg" alt="Sertifikat Junior Graphic Design">
+                </div>
+                <h3>Junior Graphic Design</h3>
+                <p class="issuer"><strong>Badan Nasional Sertifikasi Profesi</strong></p>
+                <p class="date">September 2024 - Sekarang</p>
+                <p class="description">Mempelajari dasar-dasar desain grafis menggunakan CorelDRAW dan Canva, termasuk prinsip layout, tipografi, komposisi warna, serta desain branding. Memahami proses kerja desainer grafis, dari design brief, eksplorasi konsep, hingga eksekusi karya visual.</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-image-container">
+                    <img src="images/contentcreatro.jpg" alt="Sertifikat Video Content Creator">
+                </div>
+                <h3>Video Content Creator</h3>
+                <p class="issuer"><strong>BBPSDMP Medan</strong></p>
+                <p class="date">21 Okt 2024 - 24 Okt 2024</p>
+                <p class="description">Menguasai prinsip dasar Video Content Creator, meliputi konsep, perencanaan, produksi, editing, hingga publikasi konten video. Memahami tahapan kerja profesional dalam proses produksi konten video: dari perencanaan hingga distribusi.</p>
+            </div>
+            </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Terhubung dengan Saya</h2>
+        <p>Mari berdiskusi lebih lanjut tentang proyek atau peluang kolaborasi!</p>
+        <div class="contact-info" style="margin-top: 30px;">
+        </div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/siti-noor-shaliha-9370302a7" target="_blank" title="Kunjungi Profil LinkedIn Saya">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://www.instagram.com/shaaliha7?igsh=MTlzZDZpbDdwd3M4eg%3D%3D&utm_source=qr" target="_blank" title="Kunjungi Profil Instagram Saya">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
+            </a>
+            <a href="https://wa.me/6282272606909" target="_blank" title="Kirim Pesan WhatsApp">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp">
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Siti Noor Shaliha. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
