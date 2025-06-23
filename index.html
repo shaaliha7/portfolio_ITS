@@ -700,12 +700,13 @@
                 text-align: left;
             }
 
-            /* Hapus aturan ini atau modifikasi agar "Kontak" tetap memiliki padding/border yang sama */
+            /* --- MODIFIKASI DIMULAI DI SINI --- */
+            /* Pastikan elemen terakhir juga memiliki border-bottom atau padding yang sama */
             .nav-links a:last-child {
-                /* border-bottom: none; */ /* Hapus baris ini */
-                /* Alternatif: pastikan padding tetap sama */
-                padding-bottom: 15px; /* Pastikan padding konsisten */
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Tambahkan kembali border-bottom */
             }
+            /* --- MODIFIKASI BERAKHIR DI SINI --- */
+
 
             #about .about-content {
                 flex-direction: column;
