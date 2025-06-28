@@ -7,13 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #6C63FF;
-            --secondary-color: #6CC6FF;
-            --accent-color: #ffe66d;
-            --text-dark: #2c3e50;
-            --text-light: #ecf0f1;
-            --bg-light: #fdfdff;
-            --bg-dark: #34495e;
+            --primary-color: #0056b3;
+            --secondary-color: #007bff;
+            --accent-color: #ffc107;
+            --text-dark: #212529;
+            --text-light: #f8f9fa;
+            --bg-light: #f8f9fa;
+            --bg-dark: #343a40;
         }
 
         body {
@@ -104,9 +104,9 @@
         }
 
         #hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             background-size: 400% 400%;
-            animation: gradientAnimation 4s ease infinite;
+            animation: gradientAnimation 10s ease infinite;
             color: #fff;
             min-height: 100vh;
             display: flex;
@@ -147,7 +147,7 @@
             max-width: 800px;
             margin-top: 20px;
             margin-bottom: 40px;
-            color: var(--text-dark);
+            color: var(--text-light);
             text-align: center;
             position: relative;
             z-index: 5;
@@ -159,7 +159,7 @@
         .hero-text-container p {
             font-size: 1.1em;
             margin-bottom: 1em;
-            color: var(--text-dark);
+            color: var(--text-light);
             line-height: 1.8;
         }
 
@@ -180,13 +180,13 @@
             border-radius: 50px;
             font-weight: 600;
             transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
         .btn:hover {
             transform: translateY(-5px);
             background-color: #ffd700;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
         }
 
         .section-title {
@@ -376,7 +376,7 @@
         }
 
         #projects, #organization, #relawan {
-            background-color: #e0f2f7;
+            background-color: #e6f7ff;
             padding: 80px 5%;
         }
 
@@ -411,7 +411,7 @@
             background-color: #fff;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: left;
             position: relative;
@@ -419,7 +419,7 @@
 
         .project-card:hover, .organization-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.25);
         }
 
         .project-image-container, .organization-image-container {
@@ -504,7 +504,7 @@
 
         .timeline-item-content:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
         .timeline-item.left .timeline-item-content {
@@ -545,7 +545,7 @@
             border-radius: 50%;
             z-index: 3;
             border: 3px solid var(--primary-color);
-            box-shadow: 0 0 0 5px rgba(108, 99, 255, 0.2);
+            box-shadow: 0 0 0 5px rgba(0, 86, 179, 0.2);
             left: 50%;
             transform: translateX(-50%);
         }
@@ -672,9 +672,9 @@
         }
 
         #contact {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             background-size: 400% 400%;
-            animation: gradientAnimation 4s ease infinite;
+            animation: gradientAnimation 10s ease infinite;
             color: #fff;
             padding: 80px 5%;
         }
@@ -800,7 +800,7 @@
             margin-right: auto;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            animation: slideGoomba 1s ease-in-out infinite alternate;
+            animation: slideGoomba 2s ease-in-out infinite alternate;
         }
 
         @keyframes slideGoomba {
@@ -1010,7 +1010,6 @@
     </nav>
 
     <section id="hero">
-        <h1>Siti Noor Shaliha</h1>
         <div class="hero-text-container">
             <p><strong>Membangun Solusi Digital, Membentuk Masa Depan.</strong></p>
             <p>Sebagai mahasiswa Sistem Informasi, saya bersemangat mengintegrasikan inovasi teknologi dengan kebutuhan nyata. Saya percaya bahwa dunia digital bukan sekadar kode dan data, bahkan tentang menciptakan solusi intuitif yang memberdayakan, menyederhanakan proses, dan memberikan dampak positif bagi kehidupan manusia.</p>
