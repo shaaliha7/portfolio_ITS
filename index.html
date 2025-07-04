@@ -813,6 +813,15 @@
             }
         }
 
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px) scale(0.8);
+        }
+
+        .animate-scroll {
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
         @media (max-width: 1024px) {
             #about .about-content {
                 max-width: 1000px;
@@ -1015,30 +1024,30 @@
     </nav>
 
     <section id="hero">
-        <div class="hero-text-container">
+        <div class="hero-text-container animate-scroll hidden">
             <p>Undergraduate student of the Information Systems Study Program at STMIK Triguna Dharma with a strong interest in IT Support, especially in managing end-user devices and digital document administration.</p>
             <p>Experienced in handling digital archiving, troubleshooting, and web-based system development.</p>
             <p>Proficient in Microsoft Office, web programming (HTML, CSS, JavaScript, PHP, MySQL), and tools like Figma for mockups.</p>
         </div>
-        <a href="#projects" class="btn">View My Projects</a>
+        <a href="#projects" class="btn animate-scroll hidden">View My Projects</a>
     </section>
 
     <section id="about">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title animate-scroll hidden">About Me</h2>
         <div class="about-content">
-            <div class="about-image-wrapper">
+            <div class="about-image-wrapper animate-scroll hidden">
                 <img src="images/fotodiri.png" alt="Foto Profil Siti Noor Shaliha">
             </div>
-            <div class="text-content">
+            <div class="text-content animate-scroll hidden">
                 <p>Hello! I am <strong>Siti Noor Shaliha</strong>, an Information Systems student with a strong interest in <strong>IT Support</strong>. I am enthusiastic about helping users solve technical problems, manage end-user devices, and ensure systems run smoothly.</p>
                 <p>My involvement in various campus activities demonstrates my commitment: from being an <strong>active secretary</strong> in a religious institution, a <strong>member of the scientific journal management team</strong> ensuring quality publications, to being involved in <strong>UI/UX design</strong> for intuitive application prototypes.</p>
                 <p>With a background in office administration and expertise in digital document management, I am accustomed to working with <strong>detail, systematically, and with high efficiency</strong>. I understand the importance of responsive technical support and effective solutions.</p>
                 <p>I am a <strong>communicative, adaptable, and always ready to collaborate</strong> individual. I possess strong analytical skills to diagnose IT issues, and interpersonal skills to provide friendly and clear support to users.</p>
             </div>
         </div>
-        <h2 class="section-title">My Skills</h2>
+        <h2 class="section-title animate-scroll hidden">My Skills</h2>
         <div class="skills-container">
-            <div class="skills-column">
+            <div class="skills-column animate-scroll hidden">
                 <h3>Hard Skills</h3>
                 <ul>
                     <li>Troubleshooting Documentation</li>
@@ -1050,7 +1059,7 @@
                     <li>Figma, Canva & CorelDRAW</li>
                 </ul>
             </div>
-            <div class="skills-column">
+            <div class="skills-column animate-scroll hidden">
                 <h3>Soft Skills</h3>
                 <ul>
                     <li>Attention to Detail</li>
@@ -1094,9 +1103,9 @@
     </section>
 
     <section id="projects">
-        <h2 class="section-title">Featured Projects</h2>
+        <h2 class="section-title animate-scroll hidden">Featured Projects</h2>
         <div class="project-grid">
-            <div class="project-card">
+            <div class="project-card animate-scroll hidden">
                 <div class="project-image-container">
                     <img src="images/MARKETPLACE.png" alt="Project E-commerce">
                     <div class="image-overlay">
@@ -1108,7 +1117,7 @@
                     <p>Collaborated with 6 development teams, created flowcharts & mockups of e-commerce applications. Built system flow scenarios & feature simulations, and then tested the validation of the design flow.</p>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card animate-scroll hidden">
                 <div class="project-image-container">
                     <img src="images/JURNAL.jpg" alt="Project Jurnal">
                     <div class="image-overlay">
@@ -1120,7 +1129,7 @@
                     <p>Managed 180 lecturer journals through the OJS system (editing, metadata, and submit).</p>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card animate-scroll hidden">
                 <div class="project-image-container">                    <img src="images/TRAVEL.png" alt="Project Travel Online">
                     <div class="image-overlay">
                         <span>+</span>
@@ -1190,9 +1199,9 @@
     </section>
 
     <section id="organization">
-        <h2 class="section-title">Organization</h2>
+        <h2 class="section-title animate-scroll hidden">Organization</h2>
         <div class="organization-grid">
-            <div class="organization-card">
+            <div class="organization-card animate-scroll hidden">
                 <div class="organization-image-container">
                     <img src="images/GDG.jpg" alt="DevFest Google Developer Groups 2023">
                     <div class="image-overlay">
@@ -1205,7 +1214,7 @@
                     <p>Participated as a participant in DevFest Google Developer Groups 2023, an annual conference featuring the latest innovations in Google technology, interacting with experts, and exploring relevant topics.</p>
                 </div>
             </div>
-            <div class="organization-card">
+            <div class="organization-card animate-scroll hidden">
                 <div class="organization-image-container">
                     <img src="images/SEMINARLDK.jpg" alt="Seminar Peaching and Technology LDK">
                     <div class="image-overlay">
@@ -1218,7 +1227,7 @@
                     <p>Contributed as a committee member in organizing the Peaching and Technology LDK Seminar, ensuring the smooth running of the event and supporting the needs of participants and speakers.</p>
                 </div>
             </div>
-            <div class="organization-card">
+            <div class="organization-card animate-scroll hidden">
                 <div class="organization-image-container">
                     <img src="images/uiux.jpg" alt="UI/UX Design Class">
                     <div class="image-overlay">
@@ -1231,7 +1240,7 @@
                     <p>Attended UI/UX design classes to deepen understanding of intuitive user interface design principles and optimal user experience, including the use of Figma.</p>
                 </div>
             </div>
-            <div class="organization-card">
+            <div class="organization-card animate-scroll hidden">
                 <div class="organization-image-container">
                     <img src="images/STUDYOUTDOREQC.jpg" alt="Practice English in LauKawar With English Quantum Club">
                     <div class="image-overlay">
@@ -1244,7 +1253,7 @@
                     <p>Participated in English practice sessions in LauKawar with the English Quantum Club to improve oral communication skills in an interactive and supportive environment.</p>
                 </div>
             </div>
-            <div class="organization-card">
+            <div class="organization-card animate-scroll hidden">
                 <div class="organization-image-container">
                     <img src="images/project.png" alt="Learning English Quantum Club in Class">
                     <div class="image-overlay">
@@ -1257,7 +1266,7 @@
                     <p>A comprehensive project focused on the UI/UX design of the TGD marketplace. This initiative aims to deliver a highly user-friendly and aesthetically pleasing platform that effectively meets the needs and expectations of its target audience.</p>
                 </div>
             </div>
-            <div class="organization-card">
+            <div class="organization-card animate-scroll hidden">
                 <div class="organization-image-container">
                     <img src="images/backend.jpg" alt="Class Backend Build With Laravel">
                     <div class="image-overlay">
@@ -1274,9 +1283,9 @@
     </section>
 
     <section id="relawan">
-    <h2 class="section-title">Volunteer</h2>
+    <h2 class="section-title animate-scroll hidden">Volunteer</h2>
     <div class="relawan-grid">
-        <div class="organization-card">
+        <div class="organization-card animate-scroll hidden">
             <div class="organization-image-container">
                 <img src="images/RELAWAN.jpg" alt="Relawan KIP-Kuliah 2025">
                 <div class="image-overlay">
@@ -1293,9 +1302,9 @@
 </section>
 
     <section id="certifications">
-        <h2 class="section-title">Certifications & Training</h2>
+        <h2 class="section-title animate-scroll hidden">Certifications & Training</h2>
         <div class="cert-grid">
-            <div class="cert-card">
+            <div class="cert-card animate-scroll hidden">
                 <div class="cert-image-container">
                     <img src="images/sertifikasi lsp.jpg" alt="Sertifikat Junior Graphic Design">
                     <div class="image-overlay">
@@ -1307,7 +1316,7 @@
                 <p class="date">September 2024 - Present</p>
                 <p class="description">Learned the fundamentals of graphic design using CorelDRAW and Canva, including principles of layout, typography, color composition, and branding design. Understood the workflow of a graphic designer, from design brief, concept exploration, to visual execution.</p>
             </div>
-            <div class="cert-card">
+            <div class="cert-card animate-scroll hidden">
                 <div class="cert-image-container">
                     <img src="images/contentcreatro.jpg" alt="Sertifikat Video Content Creator">
                     <div class="image-overlay">
@@ -1323,12 +1332,12 @@
     </section>
 
     <section id="contact">
-        <h2 class="section-title">Connect with Me</h2>
-        <p>Enthusiastic to explore innovative synergies and collaboration opportunities.</p>
+        <h2 class="section-title animate-scroll hidden">Connect with Me</h2>
+        <p class="animate-scroll hidden">Enthusiastic to explore innovative synergies and collaboration opportunities.</p>
         <div class="contact-info">
-            <img src="images/goomba.gif" alt="Animasi Kontak" class="contact-gif">
+            <img src="images/goomba.gif" alt="Animasi Kontak" class="contact-gif animate-scroll hidden">
         </div>
-        <div class="social-links">
+        <div class="social-links animate-scroll hidden">
             <a href="https://www.linkedin.com/in/siti-noor-shaliha-9370302a7" target="_blank" title="Visit My LinkedIn Profile">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
             </a>
@@ -1396,6 +1405,21 @@
                 if (e.target === lightbox) {
                     lightbox.style.display = 'none';
                 }
+            });
+
+            const animateOnScrollElements = document.querySelectorAll('.animate-scroll');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('hidden');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animateOnScrollElements.forEach(element => {
+                observer.observe(element);
             });
         });
     </script>
