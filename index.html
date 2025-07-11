@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -376,7 +376,7 @@
             font-size: 1.1em;
         }
 
-        #projects, #organization, #relawan {
+        #projects, #organization, #relawan, #achievement {
             background-color: #e6f7ff;
             padding: 80px 5%;
         }
@@ -391,46 +391,60 @@
             margin-right: auto;
         }
 
-        .relawan-grid {
+        /* Updated relawan-grid and achievement-grid to use flexbox for consistent height */
+        .relawan-grid, .achievement-grid {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-wrap: wrap; /* Allows cards to wrap to the next line */
+            justify-content: center; /* Centers the cards horizontally */
+            gap: 30px; /* Space between cards */
             margin-top: 40px;
-            max-width: 100%;
+            max-width: 100%; /* Ensures the grid doesn't overflow horizontally */
             margin-left: auto;
             margin-right: auto;
-            padding: 0 5%;
-            box-sizing: border-box;
+            padding: 0 5%; /* Adds padding on the sides */
+            box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+            align-items: stretch; /* CRITICAL: Makes all direct flex children (cards) in a row stretch to the height of the tallest one */
+        }
+        
+        /* Specific styling for cards within the Volunteer and Achievement grids for responsiveness */
+        .relawan-grid .organization-card,
+        .achievement-grid .achievement-card {
+            max-width: 380px; /* Sets a maximum width for each card */
+            width: 100%; /* Ensures cards take full width on smaller screens when they stack */
+            flex: 1; /* Allows cards to grow and shrink, distributing available space. flex: 1 is shorthand for flex-grow: 1, flex-shrink: 1, flex-basis: 0% */
+            min-width: 300px; /* Prevents cards from becoming too narrow */
+            /* Ensure no fixed height here */
+            height: auto; /* Explicitly ensure height is determined by content */
         }
 
-        .relawan-grid .organization-card {
-            max-width: 380px;
-            width: 100%;
-        }
-
-        .project-card, .organization-card {
+        /* General card styling (applies to projects, organizations, achievements, volunteers) */
+        .project-card, .organization-card, .achievement-card {
             background-color: #fff;
             border-radius: 15px;
-            overflow: hidden;
+            overflow: hidden; /* This is for the card itself, to respect border-radius with image */
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: left;
             position: relative;
+            display: flex; /* CRITICAL: Make the card itself a flex container */
+            flex-direction: column; /* Stack content vertically within the card */
+            height: 100%; /* Ensures the card takes the full height available from align-items: stretch on parent */
         }
 
-        .project-card:hover, .organization-card:hover {
+        .project-card:hover, .organization-card:hover, .achievement-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 18px 50px rgba(0,0,0,0.25);
         }
 
-        .project-image-container, .organization-image-container {
+        .project-image-container, .organization-image-container, .achievement-image-container {
             position: relative;
             width: 100%;
             padding-bottom: 75%;
             overflow: hidden;
+            flex-shrink: 0;
         }
 
-        .project-card img, .organization-card img {
+        .project-card img, .organization-card img, .achievement-card img {
             position: absolute;
             top: 0;
             left: 0;
@@ -440,21 +454,27 @@
             display: block;
         }
 
-        .project-info, .organization-info {
+        /* Styling for the information content within all cards */
+        .project-info, .organization-info, .achievement-info {
             padding: 25px;
+            display: flex; /* CRITICAL: Make the info section a flex container */
+            flex-direction: column; /* Stack its content (paragraphs) vertically */
+            flex-grow: 1; /* CRITICAL: Allow the info section to take up all available vertical space in the card */
+            min-height: 0; /* Ensures that the flex item can shrink below its content size if necessary, important for overflow */
         }
 
-        .project-info h3, .organization-info h3 {
-            color: var(--text-dark);
-            font-size: 1.5em;
-            margin-bottom: 0.3em;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .project-info p, .organization-info p {
+        /* Styling for paragraph text within info sections */
+        .project-info p, .organization-info p, .achievement-info p {
             font-size: 0.95em;
             color: #555;
             font-family: 'Poppins', sans-serif;
+            margin-bottom: 1em;
+            display: block; /* Ensures it behaves as a block element */
+            /* Ensure no height restrictions or line clamping. If you have any -webkit-line-clamp or similar, remove them */
+            overflow: visible; /* Ensure text is not hidden */
+            text-overflow: clip; /* Ensure text is not truncated with ellipsis */
+            min-height: auto; /* Allow the paragraph to take its natural height */
+            flex-shrink: 0; /* Prevents paragraphs from shrinking unexpectedly if there's limited space */
         }
 
         #experience, #education {
@@ -787,7 +807,8 @@
         }
 
         .project-card:hover .image-overlay,
-        .organization-card:hover .image-overlay {
+        .organization-card:hover .image-overlay,
+        .achievement-card:hover .image-overlay {
             opacity: 1;
         }
 
@@ -930,11 +951,12 @@
                 grid-template-columns: 1fr;
             }
             
-            .relawan-grid {
+            .relawan-grid, .achievement-grid {
                 padding: 0;
             }
 
-            .relawan-grid .organization-card {
+            .relawan-grid .organization-card,
+            .achievement-grid .achievement-card {
                 max-width: 100%;
             }
 
@@ -1014,6 +1036,7 @@
             <a href="#hero">Home</a>
             <a href="#about">About Me</a>
             <a href="#education">Education</a>
+            <a href="#achievement">Achievement</a>
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
             <a href="#organization">Organization</a>
@@ -1036,7 +1059,7 @@
         <h2 class="section-title animate-scroll hidden">About Me</h2>
         <div class="about-content">
             <div class="about-image-wrapper animate-scroll hidden">
-                <img src="images/fotodiri.png" alt="Foto Profil Siti Noor Shaliha">
+                <img src="images/fotodiri.png" alt="Siti Noor Shaliha Profile Photo">
             </div>
             <div class="text-content animate-scroll hidden">
                 <p>Hello! I am <strong>Siti Noor Shaliha</strong>, an Information Systems student with a strong interest in <strong>IT Support</strong>. I am enthusiastic about helping users solve technical problems, manage end-user devices, and ensure systems run smoothly.</p>
@@ -1083,8 +1106,8 @@
                     <p class="company">S1 Information Systems | GPA: 3.78/4.00</p>
                     <p class="duration">Oct 2023 – Present</p>
                     <p>Designed 2 application prototypes (Travel & E-commerce) from needs analysis to UI/UX design.</p>
-                    <p>Develop web applications using HTML, CSS, JS, PHP, and MySQL.</p>
-                    <p>Manage 180 lecturer journals through the OJS system (editing, metadata, and submit).</p>
+                    <p>Developed web applications using HTML, CSS, JS, PHP, and MySQL.</p>
+                    <p>Managed 180 lecturer journals through the OJS system (editing, metadata, and submission).</p>
                 </div>
                 <div class="timeline-item-marker"></div>
             </div>
@@ -1094,10 +1117,28 @@
                     <h3>SMK Istiqlal</h3>
                     <p class="company">Office Automation and Governance</p>
                     <p class="duration">Jul 2019 - June 2022</p>
-                    <p>4-month internship in a government agency, completing 100+ administrative archives.</p>
-                    <p>Corporate Information System Governance Certification by PT. Tractor Nusantara.</p>
+                    <p>Completed a 4-month internship in a government agency, completing 100+ administrative archives.</p>
+                    <p>Obtained Corporate Information System Governance Certification by PT. Tractor Nusantara.</p>
                 </div>
                 <div class="timeline-item-marker"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievement">
+        <h2 class="section-title animate-scroll hidden">Achievement</h2>
+        <div class="achievement-grid">
+            <div class="achievement-card animate-scroll hidden">
+                <div class="achievement-image-container">
+                    <img src="images/PILMAPRES.JPG" alt="Campus Delegate Pilmapres 2025">
+                    <div class="image-overlay">
+                        <span>+</span>
+                    </div>
+                </div>
+                <div class="achievement-info">
+                    <h3>Campus Delegate – Pilmapres 2025 (IT-Based Student Services Improvement)</h3>
+                    <p>As a campus representative in the prestigious Pilmapres 2025 regional level 1 North Sumatra, I had the opportunity to present my creative idea: "IT-Based Student Services Improvement". This initiative not only demonstrates my commitment to innovation but also my ambition to shape the future of student services that are more efficient, inclusive, and adaptive to technological advancements.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1107,7 +1148,7 @@
         <div class="project-grid">
             <div class="project-card animate-scroll hidden">
                 <div class="project-image-container">
-                    <img src="images/MARKETPLACE.png" alt="Project E-commerce">
+                    <img src="images/MARKETPLACE.png" alt="E-commerce Project">
                     <div class="image-overlay">
                         <span>+</span>
                     </div>
@@ -1118,19 +1159,18 @@
                 </div>
             </div>
             <div class="project-card animate-scroll hidden">
-                <div class="project-image-container">
-                    <img src="images/JURNAL.jpg" alt="Project Jurnal">
+                <div class="project-image-container">                    <img src="images/JURNAL.jpg" alt="Journal Project">
                     <div class="image-overlay">
                         <span>+</span>
                     </div>
                 </div>
                 <div class="project-info">
                     <h3>Lecturer Scientific Journal Management</h3>
-                    <p>Managed 180 lecturer journals through the OJS system (editing, metadata, and submit).</p>
+                    <p>Managed 180 lecturer journals through the OJS system (editing, metadata, and submission).</p>
                 </div>
             </div>
             <div class="project-card animate-scroll hidden">
-                <div class="project-image-container">                    <img src="images/TRAVEL.png" alt="Project Travel Online">
+                <div class="project-image-container">                    <img src="images/TRAVEL.png" alt="Online Travel Project">
                     <div class="image-overlay">
                         <span>+</span>
                     </div>
@@ -1179,7 +1219,7 @@
             <div class="timeline-item right">
                 <div class="timeline-item-content">
                     <h3>Customer Service & Cashier</h3>
-                    <p class="company"><strong>Toko Baju Sekolah AINI</strong></p>
+                    <p class="company"><strong>AINI School Uniform Store</strong></p>
                     <p class="duration">Jul 2022 - Dec 2022</p>
                     <p>Served customers in purchasing school uniforms and other supplies with a friendly and professional attitude. Operated cash register for cash and non-cash transactions, recorded daily sales, and managed daily financial reports. Provided detailed product information to customers and assisted in selecting uniform sizes/packages as needed.</p>
                 </div>
@@ -1216,15 +1256,15 @@
             </div>
             <div class="organization-card animate-scroll hidden">
                 <div class="organization-image-container">
-                    <img src="images/SEMINARLDK.jpg" alt="Seminar Peaching and Technology LDK">
+                    <img src="images/SEMINARLDK.jpg" alt="Seminar Preaching and Technology LDK">
                     <div class="image-overlay">
                         <span>+</span>
                     </div>
                 </div>
                 <div class="organization-info">
-                    <h3>Seminar Peaching and Technology LDK</h3>
+                    <h3>Preaching and Technology LDK Seminar</h3>
                     <p><strong>Committee</strong></p>
-                    <p>Contributed as a committee member in organizing the Peaching and Technology LDK Seminar, ensuring the smooth running of the event and supporting the needs of participants and speakers.</p>
+                    <p>Contributed as a committee member in organizing the Preaching and Technology LDK Seminar, ensuring the smooth running of the event and supporting the needs of participants and speakers.</p>
                 </div>
             </div>
             <div class="organization-card animate-scroll hidden">
@@ -1274,7 +1314,7 @@
                     </div>
                 </div>
                 <div class="organization-info">
-                    <h3>Class Backend Build With Laravel</h3>
+                    <h3>Backend Development Class with Laravel</h3>
                     <p><strong>Participant</strong></p>
                     <p>Attended backend development classes using Laravel to learn this PHP framework for building efficient and structured web applications, including database and API concepts.</p>
                 </div>
@@ -1287,7 +1327,7 @@
     <div class="relawan-grid">
         <div class="organization-card animate-scroll hidden">
             <div class="organization-image-container">
-                <img src="images/RELAWAN.jpg" alt="Relawan KIP-Kuliah 2025">
+                <img src="images/RELAWAN.jpg" alt="KIP-Kuliah 2025 Volunteer">
                 <div class="image-overlay">
                     <span>+</span>
                 </div>
@@ -1295,7 +1335,20 @@
             <div class="organization-info">
                 <h3>KIP-Kuliah 2025 Volunteer</h3>
                 <p><strong>Education Volunteer at Rumah Tahfidz Al Fazz</strong></p>
-                <p>Volunteered for the KIP-Kuliah 2025 program, providing guidance and assistance to prospective students in the registration process, completing requirements, and understanding information related to scholarships for higher education.</p>
+                <p>Volunteered for the KIP-Kuliah 2025 program, providing comprehensive guidance and empowering prospective students. Beyond assisting with the registration process, requirements, and scholarship information, we passionately inspired and innovatively supported younger students to envision and pursue their dreams of higher education, significantly helping them unlock their full academic potential.</p>
+            </div>
+        </div>
+        <div class="organization-card animate-scroll hidden">
+            <div class="organization-image-container">
+                <img src="images/PM.jpg" alt="Community Service">
+                <div class="image-overlay">
+                    <span>+</span>
+                </div>
+            </div>
+            <div class="organization-info">
+                <h3>Community Service</h3>
+                <p><strong>Empowering Home-Based Tofu Businesses: Rebranding through Innovative Packaging and Social Media Optimization</strong></p>
+                <p>Led an impactful initiative in Kuta Tualah Village, Deli Serdang Regency, empowering local home-based tofu businesses. This project focused on vital rebranding strategies, including innovative packaging design and optimizing social media presence. By enhancing their market appeal and digital footprint, we fostered sustainable growth and increased competitiveness for these vital community enterprises.</p>
             </div>
         </div>
     </div>
@@ -1306,7 +1359,7 @@
         <div class="cert-grid">
             <div class="cert-card animate-scroll hidden">
                 <div class="cert-image-container">
-                    <img src="images/sertifikasi lsp.jpg" alt="Sertifikat Junior Graphic Design">
+                    <img src="images/sertifikasi lsp.jpg" alt="Junior Graphic Design Certificate">
                     <div class="image-overlay">
                         <span>+</span>
                     </div>
@@ -1314,11 +1367,11 @@
                 <h3>Junior Graphic Designer</h3>
                 <p class="issuer"><strong>National Professional Certification Agency</strong></p>
                 <p class="date">September 2024 - Present</p>
-                <p class="description">Learned the fundamentals of graphic design using CorelDRAW and Canva, including principles of layout, typography, color composition, and branding design. Understood the workflow of a graphic designer, from design brief, concept exploration, to visual execution.</p>
+                <p class="description">Mastered the fundamentals of graphic design using CorelDRAW and Canva, including principles of layout, typography, color composition, and branding design. Understood the workflow of a graphic designer, from design brief, concept exploration, to visual execution.</p>
             </div>
             <div class="cert-card animate-scroll hidden">
                 <div class="cert-image-container">
-                    <img src="images/contentcreatro.jpg" alt="Sertifikat Video Content Creator">
+                    <img src="images/contentcreatro.jpg" alt="Video Content Creator Certificate">
                     <div class="image-overlay">
                         <span>+</span>
                     </div>
@@ -1335,13 +1388,13 @@
         <h2 class="section-title animate-scroll hidden">Connect with Me</h2>
         <p class="animate-scroll hidden">Enthusiastic to explore innovative synergies and collaboration opportunities.</p>
         <div class="contact-info">
-            <img src="images/goomba.gif" alt="Animasi Kontak" class="contact-gif animate-scroll hidden">
+            <img src="images/goomba.gif" alt="Contact Animation" class="contact-gif animate-scroll hidden">
         </div>
         <div class="social-links animate-scroll hidden">
             <a href="https://www.linkedin.com/in/siti-noor-shaliha-9370302a7" target="_blank" title="Visit My LinkedIn Profile">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
             </a>
-            <a href="https://www.instagram.com/shaaliha7?igsh=MTlzZDZpbDdwd3M4eg%3D%3D&utm_source=qr" target="_blank" title="Visit My Instagram Profile">
+            <a href="https://www.instagram.com/shaaliha7?igsh=MTlzZDZ6pbDdwd3M4eg%3D%3D&utm_source=qr" target="_blank" title="Visit My Instagram Profile">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
             </a>
             <a href="https://wa.me/6282272606909" target="_blank" title="Send WhatsApp Message">
@@ -1384,8 +1437,9 @@
             const projectOverlays = document.querySelectorAll('.project-image-container .image-overlay');
             const certOverlays = document.querySelectorAll('.cert-image-container .image-overlay');
             const organizationOverlays = document.querySelectorAll('.organization-image-container .image-overlay');
+            const achievementOverlays = document.querySelectorAll('.achievement-image-container .image-overlay');
             
-            const allOverlays = [...projectOverlays, ...certOverlays, ...organizationOverlays].filter(overlay => overlay !== null);
+            const allOverlays = [...projectOverlays, ...certOverlays, ...organizationOverlays, ...achievementOverlays].filter(overlay => overlay !== null);
 
             allOverlays.forEach(overlay => {
                 overlay.addEventListener('click', function() {
